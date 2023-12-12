@@ -425,16 +425,6 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\Encoder.h</FilePath>
             </File>
-            <File>
-              <FileName>DataType.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\DataType.c</FilePath>
-            </File>
-            <File>
-              <FileName>DataType.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Hardware\DataType.h</FilePath>
-            </File>
           </Files>
         </Group>
         <Group>
@@ -449,6 +439,26 @@
               <FileName>Delay.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\Delay.h</FilePath>
+            </File>
+            <File>
+              <FileName>DataType.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\DataType.c</FilePath>
+            </File>
+            <File>
+              <FileName>DataType.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\DataType.h</FilePath>
+            </File>
+            <File>
+              <FileName>EXTI_Trigger.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\EXTI_Trigger.c</FilePath>
+            </File>
+            <File>
+              <FileName>EXTI_Trigger.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\EXTI_Trigger.h</FilePath>
             </File>
           </Files>
         </Group>

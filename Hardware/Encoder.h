@@ -1,6 +1,23 @@
 #ifndef __ENCODER_H
 #define __ENCODER_H
+/*
+//Structure Init Template:
 
+Encoder_TypeDef Encoder_1;
+
+int main(){
+	
+	Encoder_1.OutputA_GPIO = GPIOB;
+	Encoder_1.OutputA_Pin = GPIO_Pin_8;
+	Encoder_1.OutputB_GPIO = GPIOB;
+	Encoder_1.OutputB_Pin = GPIO_Pin_9;
+	Encoder_1.Button_GPIO = GPIOB;
+	Encoder_1.Button_Pin = GPIO_Pin_0;
+	
+	Encoder_Init(&Encoder_1,NVIC_PriorityGroup_2);	
+}
+
+*/
 typedef struct{
 	GPIO_TypeDef* OutputA_GPIO;
 	uint16_t OutputA_Pin;
@@ -22,7 +39,7 @@ void EXTIx_IRQHandler(void){
 	Interrupt_Output_B(&Encoder_InitStruct);
 }
 */
-void Interrupt_Output_A(Encoder_TypeDef* Encoder_InitStruct);
-void Interrupt_Output_B(Encoder_TypeDef* Encoder_InitStruct);
+void Interrupt_Output_A_Detect_Handler(Encoder_TypeDef* Encoder_InitStruct);
+void Interrupt_Output_B_Detect_Handler(Encoder_TypeDef* Encoder_InitStruct);
 
 #endif

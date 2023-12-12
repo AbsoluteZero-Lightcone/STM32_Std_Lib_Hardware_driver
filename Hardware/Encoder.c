@@ -66,7 +66,7 @@ void Encoder_Init(Encoder_TypeDef* Encoder_InitStruct,uint32_t NVIC_PriorityGrou
 
 
 
-void Interrupt_Output_A(Encoder_TypeDef* Encoder_InitStruct){
+void Interrupt_Output_A_Detect_Handler(Encoder_TypeDef* Encoder_InitStruct){
 	if(EXTI_GetITStatus(to_EXTI_Line(Encoder_InitStruct->OutputA_Pin))==SET){
 		if(GPIO_ReadInputDataBit(Encoder_InitStruct->OutputB_GPIO, Encoder_InitStruct->OutputB_Pin) == 0){
 			Encoder_InitStruct->cnt--;
@@ -75,7 +75,7 @@ void Interrupt_Output_A(Encoder_TypeDef* Encoder_InitStruct){
 	}
 }
 
-void Interrupt_Output_B(Encoder_TypeDef* Encoder_InitStruct){
+void Interrupt_Output_B_Detect_Handler(Encoder_TypeDef* Encoder_InitStruct){
 	if(EXTI_GetITStatus(to_EXTI_Line(Encoder_InitStruct->OutputB_Pin))==SET){
 		if(GPIO_ReadInputDataBit(Encoder_InitStruct->OutputA_GPIO, Encoder_InitStruct->OutputA_Pin) == 0){
 			Encoder_InitStruct->cnt++;
