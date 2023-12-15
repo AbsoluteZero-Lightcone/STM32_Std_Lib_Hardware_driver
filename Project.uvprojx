@@ -311,7 +311,7 @@
           </ArmAdsMisc>
           <Cads>
             <interw>1</interw>
-            <Optim>0</Optim>
+            <Optim>1</Optim>
             <oTime>0</oTime>
             <SplitLS>0</SplitLS>
             <OneElfS>1</OneElfS>
@@ -459,6 +459,16 @@
               <FileName>EXTI_Trigger.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\EXTI_Trigger.h</FilePath>
+            </File>
+            <File>
+              <FileName>PowerPin.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\PowerPin.c</FilePath>
+            </File>
+            <File>
+              <FileName>PowerPin.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\PowerPin.h</FilePath>
             </File>
           </Files>
         </Group>
