@@ -1,5 +1,11 @@
 #include "stm32f10x.h"                  // Device header
 
+uint32_t to_RCC_APB2Periph(GPIO_TypeDef* GPIO);
+uint8_t to_GPIO_PortSource(GPIO_TypeDef* GPIO);
+uint8_t to_GPIO_PinSource(uint16_t Pin);
+uint32_t to_EXTI_Line(uint16_t Pin);
+uint8_t to_IRQn_Type(uint16_t Pin);
+
 uint32_t to_RCC_APB2Periph(GPIO_TypeDef* GPIO){
 	if(GPIO == GPIOA)return RCC_APB2Periph_GPIOA;
 	if(GPIO == GPIOB)return RCC_APB2Periph_GPIOB;
