@@ -15,9 +15,9 @@
 void setPowerPin(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin_x,uint8_t val);
 void setFloatingPin(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin_x);
 
-void DisableJTRST();
-void DisableJTAG();
-void DisableFullSWJ();
+void DisableJTRST(void);
+void DisableJTAG(void);
+void DisableFullSWJ(void);
 
 
 
