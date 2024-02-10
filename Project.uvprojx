@@ -382,9 +382,6 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Old</GroupName>
-        </Group>
-        <Group>
           <GroupName>Board</GroupName>
           <Files>
             <File>
@@ -493,14 +490,89 @@
               <FilePath>.\System\EXTI_Trigger.h</FilePath>
             </File>
             <File>
-              <FileName>PowerPin.c</FileName>
+              <FileName>IIC_Hardware.c</FileName>
               <FileType>1</FileType>
-              <FilePath>.\System\PowerPin.c</FilePath>
+              <FilePath>.\System\IIC_Hardware.c</FilePath>
             </File>
             <File>
-              <FileName>PowerPin.h</FileName>
+              <FileName>IIC_Hardware.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\System\PowerPin.h</FilePath>
+              <FilePath>.\System\IIC_Hardware.h</FilePath>
+            </File>
+            <File>
+              <FileName>IIC_Software.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\IIC_Software.c</FilePath>
+            </File>
+            <File>
+              <FileName>IIC_Software.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\IIC_Software.h</FilePath>
+            </File>
+            <File>
+              <FileName>Pin_Config.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\Pin_Config.c</FilePath>
+            </File>
+            <File>
+              <FileName>Pin_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\Pin_Config.h</FilePath>
+            </File>
+            <File>
+              <FileName>SPI_Hardware.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\SPI_Hardware.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI_Hardware.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\SPI_Hardware.h</FilePath>
+            </File>
+            <File>
+              <FileName>SPI_Software.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\SPI_Software.c</FilePath>
+            </File>
+            <File>
+              <FileName>SPI_Software.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\SPI_Software.h</FilePath>
+            </File>
+            <File>
+              <FileName>Pin_Define.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\Pin_Define.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_PWM.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\TIM_PWM.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_PWM.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\TIM_PWM.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_Servo.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\TIM_Servo.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_Servo.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\TIM_Servo.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_Time.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\TIM_Time.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_Time.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\TIM_Time.h</FilePath>
             </File>
           </Files>
         </Group>

@@ -4,7 +4,6 @@
 #include "OLED.h"
 
 //STM32F103C_Dev_Board_V1.h
-
 #define Board_SPI_SCK_GPIO	GPIOA
 #define Board_SPI_SCK_Pin	GPIO_Pin_7
 #define Board_SPI_SDA_GPIO	GPIOA

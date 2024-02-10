@@ -4,9 +4,7 @@
 #include "DataType.h"
 #include "Delay.h"
 
-#define OLED_W_D0(x)		GPIO_WriteBit(OLED_SPI_Struct_ptr->D0_GPIO, OLED_SPI_Struct_ptr->D0_Pin, (BitAction)(x))\
-;Delay_us(50)
-
+#define OLED_W_D0(x)		GPIO_WriteBit(OLED_SPI_Struct_ptr->D0_GPIO, OLED_SPI_Struct_ptr->D0_Pin, (BitAction)(x))
 #define OLED_W_D1(x)		GPIO_WriteBit(OLED_SPI_Struct_ptr->D1_GPIO, OLED_SPI_Struct_ptr->D1_Pin, (BitAction)(x))
 #define OLED_W_RES(x)		GPIO_WriteBit(OLED_SPI_Struct_ptr->RES_GPIO, OLED_SPI_Struct_ptr->RES_Pin, (BitAction)(x))
 #define OLED_W_DC(x)		GPIO_WriteBit(OLED_SPI_Struct_ptr->DC_GPIO, OLED_SPI_Struct_ptr->DC_Pin, (BitAction)(x))

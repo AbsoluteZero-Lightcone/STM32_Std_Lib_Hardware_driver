@@ -2,6 +2,9 @@
 #include "STM32F103C_Dev_Board_V1.h"
 #include "Delay.h"
 
+#define MCU_STM32F103C
+#include "Pin_Config.h"
+
 int main(){
 	STM32F103C_Dev_Board_Init();
 	OLED_ShowString(&OLED1,2,1,"Hello World!");
@@ -12,8 +15,9 @@ int main(){
 	
 	uint64_t i= 0;
 	while(1){
-		OLED_ShowNum(&OLED2,2,1,i++,10);
-		OLED_ShowNum(&OLED3,2,1,i++,10);
-		OLED_ShowNum(&OLED4,2,1,i++,10);
+		OLED_ShowNum(&OLED1,3,1,i,10);
+		OLED_ShowNum(&OLED2,2,1,i,10);
+		OLED_ShowNum(&OLED3,3,1,i,10);
+		OLED_ShowNum(&OLED4,4,1,i++,10);
 	}
 }
