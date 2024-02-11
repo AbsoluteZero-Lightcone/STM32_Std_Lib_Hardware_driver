@@ -5,19 +5,51 @@
 #define MCU_STM32F103C
 #include "Pin_Config.h"
 
+#include "TIM_PWM.h"
+#include "TIM_Time.h"
+
 int main(){
 	STM32F103C_Dev_Board_Init();
-	OLED_ShowString(&OLED1,2,1,"Hello World!");
+	//OLED_ShowString(&OLED1,2,1,"Hello World!");
 	OLED_ShowString(&OLED1,1,1,"OLED1");
 	OLED_ShowString(&OLED2,1,1,"OLED2");
 	OLED_ShowString(&OLED3,1,1,"OLED3");
 	OLED_ShowString(&OLED4,1,1,"OLED4");
 	
-	uint64_t i= 0;
+	setFloatingPin(GPIOC,GPIO_Pin_13);
+	
+	DisableJTAG();
+	GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2,ENABLE);
+	
+	Simple_PWM_TypeDef Simple_PWM_InitStruct;
+	Simple_PWM_InitStruct.duty = 0.5;
+	Simple_PWM_InitStruct.freq = 10000;
+	Simple_PWM_InitStruct.GPIO = GPIOA;
+	Simple_PWM_InitStruct.Pin = GPIO_Pin_15;
+	Simple_PWM_InitStruct.precision = 0.001;
+	Simple_PWM_InitStruct.TIMx = TIM2;
+	Simple_PWM_ParamUpdate(&Simple_PWM_InitStruct);
+	Simple_PWM_Init(&Simple_PWM_InitStruct);
+	
+	uint16_t i= 0;
+	uint8_t direction = 1;
 	while(1){
 		OLED_ShowNum(&OLED1,3,1,i,10);
 		OLED_ShowNum(&OLED2,2,1,i,10);
 		OLED_ShowNum(&OLED3,3,1,i,10);
-		OLED_ShowNum(&OLED4,4,1,i++,10);
+		OLED_ShowNum(&OLED4,4,1,i,10);
+		TIM_SetCompare1(TIM2,i);
+		if(direction){
+			i++;
+			if(i == Simple_PWM_InitStruct.PWM_ARR){
+				direction = 0;
+			}
+		}else{
+			i--;
+			if(i == 0){
+				direction  = 1;
+			}
+		}
+		Delay_ms(1);
 	}
 }
