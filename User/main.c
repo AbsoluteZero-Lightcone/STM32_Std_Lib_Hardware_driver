@@ -21,6 +21,8 @@ int main(){
 	DisableJTAG();
 	GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2,ENABLE);
 	
+	setInputPullUpPin(GPIOB,GPIO_Pin_8);
+	
 	Simple_PWM_TypeDef Simple_PWM_InitStruct;
 	Simple_PWM_InitStruct.duty = 0.5;
 	Simple_PWM_InitStruct.freq = 10000;
@@ -31,6 +33,8 @@ int main(){
 	Simple_PWM_ParamUpdate(&Simple_PWM_InitStruct);
 	Simple_PWM_Init(&Simple_PWM_InitStruct);
 	
+	
+	
 	uint16_t i= 0;
 	uint8_t direction = 1;
 	while(1){
@@ -39,17 +43,20 @@ int main(){
 		OLED_ShowNum(&OLED3,3,1,i,10);
 		OLED_ShowNum(&OLED4,4,1,i,10);
 		TIM_SetCompare1(TIM2,i);
-		if(direction){
-			i++;
-			if(i == Simple_PWM_InitStruct.PWM_ARR){
-				direction = 0;
+		if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_8) == 0){
+			if(direction){
+				i+=100;
+				if(i >= Simple_PWM_InitStruct.PWM_ARR){
+					direction = 0;
+				}
+			}else{
+				i-=100;
+				if(i == 0){
+					direction  = 1;
+				}
 			}
-		}else{
-			i--;
-			if(i == 0){
-				direction  = 1;
-			}
-		}
-		Delay_ms(1);
+			//Delay_ms(1);
+			OLED_ShowNum(&OLED4,3,1,1111111111,10);
+		}else OLED_ShowNum(&OLED4,3,1,0,10);
 	}
 }

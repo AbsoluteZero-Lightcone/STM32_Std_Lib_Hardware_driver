@@ -47,6 +47,20 @@ void setFloatingPin(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin_x){
 }
 
 
+/**
+* @brief  将引脚配置为上拉输入
+  * @param  GPIOx      x = A~G
+  * @param  GPIO_Pin_x x = 0~15
+  * @retval void
+  */
+void setInputPullUpPin(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin_x){
+	RCC_APB2PeriphClockCmd(to_RCC_APB2Periph(GPIOx),ENABLE);
+	GPIO_InitTypeDef GPIO_InitStruct;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode_IPU;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin_x;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_Init(GPIOx,&GPIO_InitStruct);
+}
 
 
 /**

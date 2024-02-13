@@ -520,6 +520,11 @@
               <FilePath>.\System\Pin_Config.h</FilePath>
             </File>
             <File>
+              <FileName>Pin_Define.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\Pin_Define.h</FilePath>
+            </File>
+            <File>
               <FileName>SPI_Hardware.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\System\SPI_Hardware.c</FilePath>
@@ -538,11 +543,6 @@
               <FileName>SPI_Software.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\SPI_Software.h</FilePath>
-            </File>
-            <File>
-              <FileName>Pin_Define.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\System\Pin_Define.h</FilePath>
             </File>
             <File>
               <FileName>TIM_PWM.c</FileName>
@@ -573,6 +573,26 @@
               <FileName>TIM_Time.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\TIM_Time.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_InputCapture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\TIM_InputCapture.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_InputCapture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\TIM_InputCapture.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_Encoder.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\TIM_Encoder.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_Encoder.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\TIM_Encoder.h</FilePath>
             </File>
           </Files>
         </Group>
