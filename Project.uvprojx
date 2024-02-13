@@ -382,6 +382,9 @@
       </TargetOption>
       <Groups>
         <Group>
+          <GroupName>Demo</GroupName>
+        </Group>
+        <Group>
           <GroupName>Board</GroupName>
           <Files>
             <File>

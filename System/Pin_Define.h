@@ -2,16 +2,19 @@
   ******************************************************************************
   * @file    Pin_Define.h
   * @author  Lightcone
-  * @version V1.2.0
+  * @version V1.2.1
   * @date    2024-2-14
   * @brief   STM32 MCU 的引脚定义
   ******************************************************************************
   */
-#ifndef __PIN_CONFIG_H
-#define __PIN_CONFIG_H
+#ifndef __PIN_DEFINE_H
+#define __PIN_DEFINE_H
 
 //#define MCU_STM32F103C
 #ifdef MCU_STM32F103C
+
+#define System_Clock_Freq 72000000
+
 /**
   * @defgroup STM32F103C_Debug_Pin
   * @{
@@ -145,4 +148,4 @@
 
 #endif /* MCU_STM32F103C */
 
-#endif /* __PIN_CONFIG_H */
+#endif /* __PIN_DEFINE_H */
