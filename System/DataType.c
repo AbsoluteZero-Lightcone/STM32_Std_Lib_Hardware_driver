@@ -1,3 +1,12 @@
+/**
+  ******************************************************************************
+  * @file    DataType.c
+  * @author  Lightcone
+  * @version V1.2.0
+  * @date    2024-02-14
+  * @brief   STM32F10x 数据类型转换库 并配有 快速配置的实用函数
+  ******************************************************************************
+  */
 #include "stm32f10x.h"                  // Device header
 
 uint32_t to_RCC_APB2Periph(GPIO_TypeDef* GPIO);
@@ -170,3 +179,31 @@ uint32_t TIM_to_RCC_APBxPeriph(TIM_TypeDef* TIMx){
 	return 0;
 }
 
+/**
+  * @brief  快捷使能GPIO时钟并完成配置
+  * @param  GPIOx:  x = A ~ G
+  * @param  GPIO_Pin: GPIO_Pin_x
+  * @param  GPIO_Mode:
+  *   This parameter can be one of the following values:
+				typedef enum
+				{ GPIO_Mode_AIN = 0x0,
+					GPIO_Mode_IN_FLOATING = 0x04,
+					GPIO_Mode_IPD = 0x28,
+					GPIO_Mode_IPU = 0x48,
+					GPIO_Mode_Out_OD = 0x14,
+					GPIO_Mode_Out_PP = 0x10,
+					GPIO_Mode_AF_OD = 0x1C,
+					GPIO_Mode_AF_PP = 0x18
+				}GPIOMode_TypeDef;
+  * @retval 
+  */
+void SimpleEnableGPIO(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode){
+	RCC_APB2PeriphClockCmd(to_RCC_APB2Periph(GPIOx),ENABLE);
+	GPIO_InitTypeDef GPIO_InitStruct;
+	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;
+	GPIO_InitStruct.GPIO_Mode = GPIO_Mode;
+	GPIO_InitStruct.GPIO_Pin = GPIO_Pin;
+	GPIO_Init(GPIOx,&GPIO_InitStruct);
+}
+
+/******************* Absolute Zero Studio - Lightcone **********END OF FILE****/
