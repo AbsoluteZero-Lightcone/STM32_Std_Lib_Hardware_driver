@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    Pin_Define.h
   * @author  Lightcone
-  * @version V1.1.1
+  * @version V1.2.0
   * @date    2024-2-14
   * @brief   STM32 MCU 的引脚定义
   ******************************************************************************
@@ -112,6 +112,33 @@
 #define TIM4_CH4_AF_GPIO GPIOB
 #define TIM4_CH4_AF_Pin  GPIO_Pin_9
 
+/**
+  * @}
+  */
+
+/** @defgroup STM32F103C_TIM_Pin
+  * @{
+  */ 
+#define ADC12_IN0_AF_GPIO GPIOA
+#define ADC12_IN0_AF_Pin  GPIO_Pin_0
+#define ADC12_IN1_AF_GPIO GPIOA
+#define ADC12_IN1_AF_Pin  GPIO_Pin_1
+#define ADC12_IN2_AF_GPIO GPIOA
+#define ADC12_IN2_AF_Pin  GPIO_Pin_2
+#define ADC12_IN3_AF_GPIO GPIOA
+#define ADC12_IN3_AF_Pin  GPIO_Pin_3
+#define ADC12_IN4_AF_GPIO GPIOA
+#define ADC12_IN4_AF_Pin  GPIO_Pin_4
+#define ADC12_IN5_AF_GPIO GPIOA
+#define ADC12_IN5_AF_Pin  GPIO_Pin_5
+#define ADC12_IN6_AF_GPIO GPIOA
+#define ADC12_IN6_AF_Pin  GPIO_Pin_6
+#define ADC12_IN7_AF_GPIO GPIOA
+#define ADC12_IN7_AF_Pin  GPIO_Pin_7
+#define ADC12_IN8_AF_GPIO GPIOB
+#define ADC12_IN8_AF_Pin  GPIO_Pin_0
+#define ADC12_IN9_AF_GPIO GPIOB
+#define ADC12_IN9_AF_Pin  GPIO_Pin_1
 /**
   * @}
   */
