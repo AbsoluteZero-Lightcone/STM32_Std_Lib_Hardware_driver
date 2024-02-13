@@ -460,6 +460,11 @@
           <GroupName>System</GroupName>
           <Files>
             <File>
+              <FileName>Pin_Define.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\Pin_Define.h</FilePath>
+            </File>
+            <File>
               <FileName>Delay.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\System\Delay.c</FilePath>
@@ -520,11 +525,6 @@
               <FilePath>.\System\Pin_Config.h</FilePath>
             </File>
             <File>
-              <FileName>Pin_Define.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\System\Pin_Define.h</FilePath>
-            </File>
-            <File>
               <FileName>SPI_Hardware.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\System\SPI_Hardware.c</FilePath>
@@ -575,16 +575,6 @@
               <FilePath>.\System\TIM_Time.h</FilePath>
             </File>
             <File>
-              <FileName>TIM_InputCapture.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\System\TIM_InputCapture.c</FilePath>
-            </File>
-            <File>
-              <FileName>TIM_InputCapture.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\System\TIM_InputCapture.h</FilePath>
-            </File>
-            <File>
               <FileName>TIM_Encoder.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\System\TIM_Encoder.c</FilePath>
@@ -593,6 +583,16 @@
               <FileName>TIM_Encoder.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\TIM_Encoder.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_InputCapture.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\TIM_InputCapture.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_InputCapture.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\TIM_InputCapture.h</FilePath>
             </File>
           </Files>
         </Group>
