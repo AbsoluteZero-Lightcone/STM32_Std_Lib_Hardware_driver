@@ -1,14 +1,14 @@
 /**
   ******************************************************************************
-  * @file    Pin_Define.h
+  * @file    STM32Device.h
   * @author  Lightcone
-  * @version V1.2.1
-  * @date    2024-2-14
+  * @version V1.2.2
+  * @date    2024-2-15
   * @brief   STM32 MCU 的引脚定义
   ******************************************************************************
   */
-#ifndef __PIN_DEFINE_H
-#define __PIN_DEFINE_H
+#ifndef __STM32_DEVICE_H
+#define __STM32_DEVICE_H
 
 //#define MCU_STM32F103C
 #ifdef MCU_STM32F103C
@@ -148,4 +148,4 @@
 
 #endif /* MCU_STM32F103C */
 
-#endif /* __PIN_DEFINE_H */
+#endif /* __STM32_DEVICE_H */

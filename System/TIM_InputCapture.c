@@ -9,11 +9,11 @@
   */
 #include "stm32f10x.h"                  // Device header
 #include "Pin_Config.h"
-#include "Pin_Define.h"
+#include "STM32Device.h"
 
 uint16_t TIM_Prescaler = 72;// 小了精度高但被测频率不能过低
 
-void Simple_TIM_PWMI_Init(){
+void Simple_TIM3_PWMI_Init(){
 	SimpleEnableGPIO(TIM3_CH1_AF_GPIO,TIM3_CH1_AF_Pin,GPIO_Mode_IN_FLOATING);
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,ENABLE);

@@ -7,7 +7,7 @@
   * @brief   STM32F10x 定时器输入捕获测频率 PWMI 测频率占空比
   ******************************************************************************
   */
-void Simple_TIM_PWMI_Init(void);
+void Simple_TIM3_PWMI_Init(void);
 float Simple_TIM_PWMI_getFreq(void);
 float Simple_TIM_PWMI_getDuty(void);
 

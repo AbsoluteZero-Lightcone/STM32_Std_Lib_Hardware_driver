@@ -10,7 +10,7 @@
 #include "stm32f10x.h"                  // Device header
 #include "DataType.h"
 #include "TIM_PWM.h"
-#include "Pin_Define.h"
+#include "STM32Device.h"
 
 void Simple_PWM_ParamUpdate(Simple_PWM_TypeDef* Simple_PWM_Structure){
 	

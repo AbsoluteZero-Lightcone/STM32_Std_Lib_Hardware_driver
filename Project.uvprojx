@@ -340,7 +340,7 @@
               <MiscControls></MiscControls>
               <Define>USE_STDPERIPH_DRIVER MCU_STM32F103C</Define>
               <Undefine></Undefine>
-              <IncludePath>.\Startup;.\User;.\Library;.\System;.\Hardware;.\Board</IncludePath>
+              <IncludePath>.\Startup;.\User;.\Library;.\System;.\Hardware;.\Board;.\Demo</IncludePath>
             </VariousControls>
           </Cads>
           <Aads>
@@ -383,6 +383,13 @@
       <Groups>
         <Group>
           <GroupName>Demo</GroupName>
+          <Files>
+            <File>
+              <FileName>main_PWMIO.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Demo\main_PWMIO.c</FilePath>
+            </File>
+          </Files>
         </Group>
         <Group>
           <GroupName>Board</GroupName>
@@ -463,9 +470,9 @@
           <GroupName>System</GroupName>
           <Files>
             <File>
-              <FileName>Pin_Define.h</FileName>
+              <FileName>STM32Device.h</FileName>
               <FileType>5</FileType>
-              <FilePath>.\System\Pin_Define.h</FilePath>
+              <FilePath>.\System\STM32Device.h</FilePath>
             </File>
             <File>
               <FileName>Delay.c</FileName>
@@ -578,16 +585,6 @@
               <FilePath>.\System\TIM_Time.h</FilePath>
             </File>
             <File>
-              <FileName>TIM_Encoder.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\System\TIM_Encoder.c</FilePath>
-            </File>
-            <File>
-              <FileName>TIM_Encoder.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\System\TIM_Encoder.h</FilePath>
-            </File>
-            <File>
               <FileName>TIM_InputCapture.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\System\TIM_InputCapture.c</FilePath>
@@ -596,6 +593,16 @@
               <FileName>TIM_InputCapture.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\System\TIM_InputCapture.h</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_EncoderInterface.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\TIM_EncoderInterface.c</FilePath>
+            </File>
+            <File>
+              <FileName>TIM_EncoderInterface.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\TIM_EncoderInterface.h</FilePath>
             </File>
           </Files>
         </Group>
