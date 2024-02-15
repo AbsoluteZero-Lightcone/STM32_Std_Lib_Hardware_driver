@@ -2,20 +2,20 @@
   ******************************************************************************
   * @file    TIM_PWM.c
   * @author  Lightcone
-  * @version V1.0.0
-  * @date    2024-02-11
+  * @version V1.0.1
+  * @date    2024-02-15
   * @brief   定时器输出PWM信号
   ******************************************************************************
   */
 #include "stm32f10x.h"                  // Device header
 #include "DataType.h"
 #include "TIM_PWM.h"
-
+#include "Pin_Define.h"
 
 void Simple_PWM_ParamUpdate(Simple_PWM_TypeDef* Simple_PWM_Structure){
 	
 	Simple_PWM_Structure->PWM_ARR = (uint16_t)(1.0/Simple_PWM_Structure->precision);
-	Simple_PWM_Structure->PWM_PSC = (uint16_t)(72000000.0/Simple_PWM_Structure->freq/Simple_PWM_Structure->PWM_ARR);
+	Simple_PWM_Structure->PWM_PSC = (uint16_t)(System_Clock_Freq*1.0/Simple_PWM_Structure->freq/Simple_PWM_Structure->PWM_ARR);
 	Simple_PWM_Structure->PWM_CCR = (uint16_t)Simple_PWM_Structure->PWM_ARR*Simple_PWM_Structure->duty;
 }
 

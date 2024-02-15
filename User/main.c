@@ -6,6 +6,7 @@
 #include "TIM_PWM.h"
 #include "TIM_Time.h"
 #include "TIM_InputCapture.h"
+
 int main(){
 	STM32F103C_Dev_Board_Init();
 	
@@ -15,11 +16,11 @@ int main(){
 	SimpleEnableGPIO(GPIOB,GPIO_Pin_8,GPIO_Mode_IPU);
 	
 	Simple_PWM_TypeDef Simple_PWM_InitStruct;
-	Simple_PWM_InitStruct.duty = 0.5;
-	Simple_PWM_InitStruct.freq = 10000;
+	Simple_PWM_InitStruct.duty = 0.0;
+	Simple_PWM_InitStruct.freq = 1000;
 	Simple_PWM_InitStruct.GPIO = GPIOA;
 	Simple_PWM_InitStruct.Pin = GPIO_Pin_15;
-	Simple_PWM_InitStruct.precision = 0.001;
+	Simple_PWM_InitStruct.precision = 0.01;
 	Simple_PWM_InitStruct.TIMx = TIM2;
 	Simple_PWM_ParamUpdate(&Simple_PWM_InitStruct);
 	Simple_PWM_Init(&Simple_PWM_InitStruct);
@@ -45,23 +46,23 @@ int main(){
 	uint8_t direction = 1;
 	while(1){
 		OLED_ShowNum(&OLED1,2,6,Simple_PWM_InitStruct.freq,7);
-		OLED_ShowNum(&OLED1,3,6,i,7);
+		OLED_ShowNum(&OLED1,3,6,(uint32_t)(TIM_GetCapture1(TIM2)*1.0/Simple_PWM_InitStruct.PWM_ARR*100),2);
 		OLED_ShowNum(&OLED2,2,5,TIM_GetCapture1(TIM2),7);
 		OLED_ShowNum(&OLED2,3,5,TIM_GetCounter(TIM2),7);
 		OLED_ShowNum(&OLED3,2,6,(uint32_t)(Simple_TIM_PWMI_getFreq()+0.5),7);
-		OLED_ShowNum(&OLED3,3,6,(uint32_t)(Simple_TIM_PWMI_getDuty()+0.5),7);
+		OLED_ShowNum(&OLED3,3,6,(uint32_t)((Simple_TIM_PWMI_getDuty()*100+0.5)),2);
 		OLED_ShowNum(&OLED4,2,8,TIM_GetCapture1(TIM3),7);
 		OLED_ShowNum(&OLED4,3,8,TIM_GetCapture2(TIM3),7);
-		OLED_ShowNum(&OLED4,4,5,TIM_GetCounter(TIM3),7);
+		OLED_ShowNum(&OLED4,4,8,TIM_GetCounter(TIM3),7);
 		TIM_SetCompare1(TIM2,i);
 		if(GPIO_ReadInputDataBit(GPIOB,GPIO_Pin_8) == 0){
 			if(direction){
-				i+=100;
+				i+=1;
 				if(i >= Simple_PWM_InitStruct.PWM_ARR){
 					direction = 0;
 				}
 			}else{
-				i-=100;
+				i-=1;
 				if(i == 0){
 					direction  = 1;
 				}
