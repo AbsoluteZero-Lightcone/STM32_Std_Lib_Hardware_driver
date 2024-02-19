@@ -1,6 +1,6 @@
 #ifndef __OLED_H
 #define __OLED_H
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 
 
 

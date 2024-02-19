@@ -1,4 +1,4 @@
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 #include "74HC595.h"
 #include "Delay.h"
 #include "MatrixLED.h"

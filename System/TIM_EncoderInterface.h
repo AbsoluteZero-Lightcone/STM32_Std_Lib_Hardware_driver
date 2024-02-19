@@ -8,7 +8,7 @@
   ******************************************************************************
   */
 
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 
 void Simple_TIM3_EncoderInterface_Init();
 uint16_t get_Simple_TIM3_EncoderInterface_Increment();

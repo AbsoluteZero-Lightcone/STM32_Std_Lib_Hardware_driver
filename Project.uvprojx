@@ -604,6 +604,16 @@
               <FileType>5</FileType>
               <FilePath>.\System\TIM_EncoderInterface.h</FilePath>
             </File>
+            <File>
+              <FileName>ADC.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\ADC.c</FilePath>
+            </File>
+            <File>
+              <FileName>ADC.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\ADC.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

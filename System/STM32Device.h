@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    STM32Device.h
   * @author  Lightcone
-  * @version V1.2.2
-  * @date    2024-2-15
+  * @version V1.3.1
+  * @date    2024-2-19
   * @brief   STM32 MCU 的引脚定义
   ******************************************************************************
   */
@@ -13,7 +13,19 @@
 //#define MCU_STM32F103C
 #ifdef MCU_STM32F103C
 
+
+/** @defgroup STM32F103_System_Config
+  * @{
+  */ 
+
+#include "stm32f10x.h"                  // Device header
+
 #define System_Clock_Freq 72000000
+
+/**
+  * @}
+  */
+
 
 /**
   * @defgroup STM32F103C_Debug_Pin

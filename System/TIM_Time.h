@@ -11,7 +11,7 @@
 #ifndef __TIM_TIME_H
 #define __TIM_TIME_H
 
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 
 void Time_Init(TIM_TypeDef* TIMx);
 

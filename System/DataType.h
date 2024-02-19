@@ -7,7 +7,7 @@
   * @brief   STM32F10x 数据类型转换库
   ******************************************************************************
   */
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 
 #ifndef __DATA_TYPE_H
 #define __DATA_TYPE_H

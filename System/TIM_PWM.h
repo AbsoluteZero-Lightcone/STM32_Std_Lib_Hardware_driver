@@ -11,7 +11,7 @@
 #ifndef __TIM_PWM_H
 #define __TIM_PWM_H
 
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 
 
 /** 

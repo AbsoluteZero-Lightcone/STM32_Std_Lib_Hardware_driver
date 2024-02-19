@@ -10,7 +10,7 @@
 #ifndef __PIN_CONFIG_H
 #define __PIN_CONFIG_H
 
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 
 
 void DisableJTRST(void);

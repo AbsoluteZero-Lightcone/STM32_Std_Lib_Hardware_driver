@@ -7,7 +7,7 @@
   * @brief   STM32F10x 数据类型转换库
   ******************************************************************************
   */
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 
 uint32_t to_RCC_APB2Periph(GPIO_TypeDef* GPIO);
 uint8_t to_GPIO_PortSource(GPIO_TypeDef* GPIO);

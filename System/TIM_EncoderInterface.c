@@ -7,7 +7,7 @@
   * @brief   STM32F10x 定时器编码器接口
   ******************************************************************************
   */
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 #include "Pin_Config.h"
 #include "STM32Device.h"
 

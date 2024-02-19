@@ -1,4 +1,4 @@
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 #include "74HC595.h"
 #include "DataType.h"
 void _74HC595_Init(_74HC595_TypeDef* _74HC595_Struct){

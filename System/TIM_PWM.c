@@ -7,7 +7,7 @@
   * @brief   定时器输出PWM信号
   ******************************************************************************
   */
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 #include "DataType.h"
 #include "TIM_PWM.h"
 #include "STM32Device.h"

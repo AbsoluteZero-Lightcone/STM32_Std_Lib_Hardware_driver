@@ -8,7 +8,7 @@
   ******************************************************************************
   */
 
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 #include "DataType.h"
 
 /**

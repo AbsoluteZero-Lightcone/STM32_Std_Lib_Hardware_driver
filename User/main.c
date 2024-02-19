@@ -7,7 +7,7 @@
   * @brief   STM32F10x 入口函数
   ******************************************************************************
   */
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 
 extern int main_PWMIO(void);
 

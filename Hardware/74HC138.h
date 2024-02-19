@@ -1,6 +1,6 @@
 #ifndef __74HC138_H
 #define __74HC138_H
-#include "stm32f10x.h"                  // Device header
+#include "STM32Device.h"
 #include "DataType.h"
 
 typedef struct{
