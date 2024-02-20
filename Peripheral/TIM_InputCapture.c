@@ -8,7 +8,7 @@
   ******************************************************************************
   */
 #include "STM32Device.h"
-#include "Pin_Config.h"
+
 #include "STM32Device.h"
 
 uint16_t TIM_Prescaler = 72;// 小了精度高但被测频率不能过低

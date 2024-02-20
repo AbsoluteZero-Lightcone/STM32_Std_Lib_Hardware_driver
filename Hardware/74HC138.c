@@ -1,5 +1,5 @@
 #include "STM32Device.h"
-#include "DataType.h"
+
 #include "74HC138.h"
 
 void _74HC138_Write(_74HC138_TypeDef* _74HC138,uint8_t n){

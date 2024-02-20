@@ -8,7 +8,7 @@
   ******************************************************************************
   */
 #include "STM32Device.h"
-#include "Pin_Config.h"
+
 #include "STM32Device.h"
 
 void Simple_TIM3_EncoderInterface_Init(){

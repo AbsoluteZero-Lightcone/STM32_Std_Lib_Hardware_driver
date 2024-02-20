@@ -2,15 +2,16 @@
   ******************************************************************************
   * @file    DataType.h
   * @author  Lightcone
-  * @version V1.3.0
-  * @date    2024-02-14
+  * @version V1.3.1
+  * @date    2024-02-20
   * @brief   STM32F10x 数据类型转换库
   ******************************************************************************
   */
-#include "STM32Device.h"
 
 #ifndef __DATA_TYPE_H
 #define __DATA_TYPE_H
+
+#include "STM32Device.h"
 
 // 数据类型转换
 uint32_t to_RCC_APB2Periph(GPIO_TypeDef* GPIO);

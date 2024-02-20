@@ -1,7 +1,7 @@
 #include "stm32f10x.h"
 #include "OLED_Font.h"
 #include "OLED.h"
-#include "DataType.h"
+
 #include "Delay.h"
 
 #define OLED_W_D0(x)		GPIO_WriteBit(OLED_SPI_Struct_ptr->D0_GPIO, OLED_SPI_Struct_ptr->D0_Pin, (BitAction)(x))

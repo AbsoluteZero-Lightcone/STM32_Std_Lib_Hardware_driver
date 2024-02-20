@@ -2,15 +2,13 @@
   ******************************************************************************
   * @file    Pin_Config.c
   * @author  Lightcone
-  * @version V1.1.1
-  * @date    2024-02-14
+  * @version V1.1.2
+  * @date    2024-02-20
   * @brief   用于STM32F10x标准库的引脚可用性和引脚功能的快速配置
   ******************************************************************************
   */
 
-#include "stm32f10x.h"     // Device header
-#include "DataType.h"
-#include "Pin_Config.h"
+#include "STM32Device.h"
 
 /**
   * @brief  禁用JTAG的JTRST，使之可被用作GPIO

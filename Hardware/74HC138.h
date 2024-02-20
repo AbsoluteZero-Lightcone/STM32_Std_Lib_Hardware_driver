@@ -1,7 +1,7 @@
 #ifndef __74HC138_H
 #define __74HC138_H
 #include "STM32Device.h"
-#include "DataType.h"
+
 
 typedef struct{
 	GPIO_TypeDef* A_GPIO;uint16_t A_Pin;

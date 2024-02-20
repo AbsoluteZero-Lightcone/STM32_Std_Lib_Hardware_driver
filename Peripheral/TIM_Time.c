@@ -9,7 +9,7 @@
   */
 
 #include "STM32Device.h"
-#include "DataType.h"
+
 
 /**
   * @brief  初始化一个定时器外设

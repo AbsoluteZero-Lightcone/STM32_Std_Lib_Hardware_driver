@@ -1,5 +1,5 @@
 #include "STM32Device.h"
-#include "DataType.h"
+
 #include "EXTI_Trigger.h"
 
 void EXTI_Trigger_Init(EXTI_Trigger_TypeDef *EXTI_t,uint32_t NVIC_PriorityGroup){

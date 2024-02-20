@@ -8,7 +8,7 @@
   ******************************************************************************
   */
 #include "STM32Device.h"
-#include "DataType.h"
+
 #include "TIM_PWM.h"
 #include "STM32Device.h"
 

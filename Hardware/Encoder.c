@@ -1,5 +1,4 @@
 #include "STM32Device.h"
-#include "DataType.h"
 #include "Encoder.h"
 
 /**
