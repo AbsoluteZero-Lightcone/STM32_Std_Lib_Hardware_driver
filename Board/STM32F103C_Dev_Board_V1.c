@@ -1,9 +1,20 @@
+/**
+  ******************************************************************************
+  * @file    STM32F103C_Dev_Board_V1.c
+  * @author  Lightcone
+  * @version V1.2.0
+  * @date    2024-02-22
+  * @brief   STM32F103C开发板驱动库
+  ******************************************************************************
+  */
 #include "STM32Device.h"
 #include "OLED.h"
 #include "74HC138.h"
 #include "STM32F103C_Dev_Board_V1.h"
-
+#include "ADC.h"
 // STM32F103C_Dev_Board_V1
+
+uint16_t (*readPotentiometer)(void) = get_Simple_ADC1_Single_Channel_PA0_Value;
 
 // OLED*4
 _74HC138_TypeDef CS_74HC138;
@@ -51,4 +62,8 @@ void STM32F103C_Dev_Board_Init(){
 	OLED4.RES_GPIO = GPIOG;OLED4.RES_Pin= GPIO_Pin_0;//NC
 	OLED4.CS_Handler= OLED4_CS_Callback;
 	OLED_Init(&OLED4);
+	
+	//ADC1 Init
+	Simple_ADC1_Single_Channel_PA0_Init();
 }
+/******************* Absolute Zero Studio - Lightcone **********END OF FILE****/

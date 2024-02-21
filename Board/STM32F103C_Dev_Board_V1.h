@@ -1,3 +1,12 @@
+/**
+  ******************************************************************************
+  * @file    STM32F103C_Dev_Board_V1.h
+  * @author  Lightcone
+  * @version V1.2.0
+  * @date    2024-02-22
+  * @brief   STM32F103C开发板驱动库
+  ******************************************************************************
+  */
 #ifndef __STM32F103C_DEV_BOARD_V1
 #define __STM32F103C_DEV_BOARD_V1
 #include "STM32Device.h"
@@ -16,6 +25,10 @@ extern OLED_SPI OLED2;
 extern OLED_SPI OLED3;
 extern OLED_SPI OLED4;
 
+extern uint16_t (*readPotentiometer)(void);
+
 void STM32F103C_Dev_Board_Init(void);
 
 #endif
+
+/******************* Absolute Zero Studio - Lightcone **********END OF FILE****/
