@@ -2,14 +2,14 @@
   ******************************************************************************
   * @file    ADC.c
   * @author  Lightcone
-  * @version V1.0.0
-  * @date    2024-02-20
+  * @version V1.0.1
+  * @date    2024-02-22
   * @brief   STM32F10x ADC
   *********;*********************************************************************
   */
 #include "STM32Device.h"
 
-void Simple_ADC1_Single_Channel_Init(){
+void Simple_ADC1_Single_Channel_PA0_Init(){
 	// 来源
 	ADC_TempSensorVrefintCmd(ENABLE);
 	SimpleEnableGPIO(ADC12_IN0_AF_GPIO,ADC12_IN0_AF_Pin,GPIO_Mode_AIN);
@@ -41,6 +41,15 @@ void Simple_ADC1_Single_Channel_Init(){
 	while(ADC_GetResetCalibrationStatus(ADC1) == SET);// 硬件清零
 	ADC_StartCalibration(ADC1);
 	while(ADC_GetCalibrationStatus(ADC1) == SET);
+}
+
+uint16_t get_Simple_ADC1_Single_Channel_PA0_Value(){
+	// 软件触发转换
+	ADC_SoftwareStartConvCmd(ADC1,ENABLE);
+	while(ADC_GetFlagStatus(ADC1,ADC_FLAG_EOC)==RESET);
+	// 转换结束EOC（end of convert）置1
+	// 读取ADC_DR时EOC硬件自动清除
+	return ADC_GetConversionValue(ADC1);
 }
 
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/

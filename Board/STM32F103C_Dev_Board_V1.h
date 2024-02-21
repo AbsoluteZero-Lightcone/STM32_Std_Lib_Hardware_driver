@@ -1,6 +1,6 @@
 #ifndef __STM32F103C_DEV_BOARD_V1
 #define __STM32F103C_DEV_BOARD_V1
-#include "stm32f10x.h"
+#include "STM32Device.h"
 #include "OLED.h"
 
 //STM32F103C_Dev_Board_V1.h

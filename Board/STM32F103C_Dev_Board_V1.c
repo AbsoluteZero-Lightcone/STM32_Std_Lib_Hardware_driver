@@ -1,4 +1,4 @@
-#include "stm32f10x.h"
+#include "STM32Device.h"
 #include "OLED.h"
 #include "74HC138.h"
 #include "STM32F103C_Dev_Board_V1.h"

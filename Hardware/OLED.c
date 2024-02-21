@@ -1,4 +1,4 @@
-#include "stm32f10x.h"
+#include "STM32Device.h"
 #include "OLED_Font.h"
 #include "OLED.h"
 

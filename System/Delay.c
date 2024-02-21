@@ -1,4 +1,4 @@
-#include "stm32f10x.h"
+#include "STM32Device.h"
 
 /**
   * @brief  微秒级延时
