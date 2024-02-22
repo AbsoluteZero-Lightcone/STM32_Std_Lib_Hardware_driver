@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    STM32F103C_Dev_Board_V1.c
   * @author  Lightcone
-  * @version V1.2.0
+  * @version V1.2.1
   * @date    2024-02-22
   * @brief   STM32F103C开发板驱动库
   ******************************************************************************
@@ -14,7 +14,7 @@
 #include "ADC.h"
 // STM32F103C_Dev_Board_V1
 
-uint16_t (*readPotentiometer)(void) = get_Simple_ADC1_Single_Channel_PA0_Value;
+uint16_t (*readPotentiometer)(uint8_t ADC_Channel_x) = get_Simple_ADC1_Single_Channel_Value;
 
 // OLED*4
 _74HC138_TypeDef CS_74HC138;
@@ -64,6 +64,6 @@ void STM32F103C_Dev_Board_Init(){
 	OLED_Init(&OLED4);
 	
 	//ADC1 Init
-	Simple_ADC1_Single_Channel_PA0_Init();
+	Simple_ADC1_Single_Channel_Init();
 }
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/

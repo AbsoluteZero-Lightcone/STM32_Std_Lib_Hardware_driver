@@ -25,17 +25,17 @@ int main(){
 	OLED_ShowString(&OLED1,4,1,"Percent=  .   %");
 
 	uint16_t ADC_DR;
-	float Voltage;
-	float Percentage;
+	double Voltage;
+	double Percentage;
 
 	while(1){
-		ADC_DR = readPotentiometer();
+		ADC_DR = readPotentiometer(ADC_Channel_0);
 		Voltage = ADC_DR/4096.0*3.3;
 		Percentage = ADC_DR/4095.0*100;
 		OLED_ShowNum(&OLED1,2,8,ADC_DR,4);
-		OLED_ShowNum(&OLED1,3,9,(uint16_t)(Voltage+0.5),1);
+		OLED_ShowNum(&OLED1,3,9,(uint16_t)(Voltage),1);
 		OLED_ShowNum(&OLED1,3,11,(uint16_t)(Voltage*10000+0.5)%10000,4);
-		OLED_ShowNum(&OLED1,4,9,(uint16_t)(Percentage+0.5),2);
+		OLED_ShowNum(&OLED1,4,9,(uint16_t)(Percentage),2);
 		OLED_ShowNum(&OLED1,4,12,(uint16_t)(Percentage*1000+0.5)%1000,3);
 	}
 }
