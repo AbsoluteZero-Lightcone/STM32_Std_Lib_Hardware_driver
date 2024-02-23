@@ -382,16 +382,6 @@
       </TargetOption>
       <Groups>
         <Group>
-          <GroupName>Demo</GroupName>
-          <Files>
-            <File>
-              <FileName>main_PWMIO.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Demo\main_PWMIO.c</FilePath>
-            </File>
-          </Files>
-        </Group>
-        <Group>
           <GroupName>Board</GroupName>
           <Files>
             <File>
@@ -518,6 +508,16 @@
               <FileName>TIM_Time.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Peripheral\TIM_Time.h</FilePath>
+            </File>
+            <File>
+              <FileName>DMA.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Peripheral\DMA.c</FilePath>
+            </File>
+            <File>
+              <FileName>DMA.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Peripheral\DMA.h</FilePath>
             </File>
           </Files>
         </Group>

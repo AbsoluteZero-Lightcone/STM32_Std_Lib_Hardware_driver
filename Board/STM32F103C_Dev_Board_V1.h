@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    STM32F103C_Dev_Board_V1.h
   * @author  Lightcone
-  * @version V1.2.1
-  * @date    2024-02-22
+  * @version V1.3.0
+  * @date    2024-02-23
   * @brief   STM32F103C开发板驱动库
   ******************************************************************************
   */
@@ -28,6 +28,13 @@ extern OLED_SPI OLED4;
 extern uint16_t (*readPotentiometer)(uint8_t ADC_Channel_x);
 
 void STM32F103C_Dev_Board_Init(void);
+
+
+// DEMOs
+//todo:extern main 写法
+void displayPotentiometer(void);
+void displayPWMIO(void);
+
 
 #endif
 

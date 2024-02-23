@@ -1,17 +1,15 @@
 /**
   ******************************************************************************
-  * @file    main.c
+  * @file    DMA.c
   * @author  Lightcone
+  * @version V1.0.0
   * @date    2024-02-23
-  * @brief   STM32F10x 入口函数
+  * @brief   STM32F10x 
   ******************************************************************************
   */
-
-// Includes
 #include "STM32Device.h"
-#include "STM32F103C_Dev_Board_V1.h"
 
-int main(){
-	displayPWMIO();
-}
+
+
+
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/
