@@ -31,7 +31,6 @@ void STM32F103C_Dev_Board_Init(void);
 
 
 // DEMOs
-//todo:extern main 写法
 void displayPotentiometer(void);
 void displayPWMIO(void);
 
