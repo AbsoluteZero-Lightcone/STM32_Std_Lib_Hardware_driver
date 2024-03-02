@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    STM32F103C_Dev_Board_V1.c
   * @author  Lightcone
-  * @version V1.3.1
+  * @version V1.3.2
   * @date    2024-03-02
   * @brief   STM32F103C开发板驱动库
   ******************************************************************************
@@ -177,4 +177,9 @@ void displayPWMIO(){
 	}
 }
 
+
+void LED_PC13(FunctionalState x){
+	SimpleEnableGPIO(GPIOC,GPIO_Pin_13,GPIO_Mode_Out_PP);
+	GPIO_WriteBit(GPIOC,GPIO_Pin_13,(BitAction)x);
+}
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/
