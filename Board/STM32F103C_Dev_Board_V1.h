@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    STM32F103C_Dev_Board_V1.h
   * @author  Lightcone
-  * @version V1.3.0
-  * @date    2024-02-23
+  * @version V1.3.1
+  * @date    2024-03-02
   * @brief   STM32F103C开发板驱动库
   ******************************************************************************
   */
@@ -24,6 +24,7 @@ extern OLED_SPI OLED1;
 extern OLED_SPI OLED2;
 extern OLED_SPI OLED3;
 extern OLED_SPI OLED4;
+extern OLED_SPI OLED5;
 
 extern uint16_t (*readPotentiometer)(uint8_t ADC_Channel_x);
 

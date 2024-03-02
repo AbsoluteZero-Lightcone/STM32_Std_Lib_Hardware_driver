@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    STM32F103C_Dev_Board_V1.c
   * @author  Lightcone
-  * @version V1.3.0
-  * @date    2024-02-23
+  * @version V1.3.1
+  * @date    2024-03-02
   * @brief   STM32F103C开发板驱动库
   ******************************************************************************
   */
@@ -22,10 +22,12 @@ void OLED1_CS_Callback(){_74HC138_Write(&CS_74HC138,1);}
 void OLED2_CS_Callback(){_74HC138_Write(&CS_74HC138,2);}
 void OLED3_CS_Callback(){_74HC138_Write(&CS_74HC138,3);}
 void OLED4_CS_Callback(){_74HC138_Write(&CS_74HC138,4);}
+void OLED5_CS_Callback(){_74HC138_Write(&CS_74HC138,5);}
 OLED_SPI OLED1;
 OLED_SPI OLED2;
 OLED_SPI OLED3;
 OLED_SPI OLED4;
+OLED_SPI OLED5;
 
 void STM32F103C_Dev_Board_Init(){
 	//74HC138 Init
@@ -62,7 +64,13 @@ void STM32F103C_Dev_Board_Init(){
 	OLED4.RES_GPIO = GPIOG;OLED4.RES_Pin= GPIO_Pin_0;//NC
 	OLED4.CS_Handler= OLED4_CS_Callback;
 	OLED_Init(&OLED4);
-	
+	//OLED5 Init
+	OLED5.D0_GPIO = Board_SPI_SCK_GPIO;	OLED5.D0_Pin= Board_SPI_SCK_Pin;//SCK
+	OLED5.D1_GPIO = Board_SPI_SDA_GPIO;	OLED5.D1_Pin= Board_SPI_SDA_Pin;//SDA
+	OLED5.DC_GPIO = Board_SPI_DC_GPIO;	OLED5.DC_Pin= Board_SPI_DC_Pin;//DC
+	OLED5.RES_GPIO = GPIOG;OLED5.RES_Pin= GPIO_Pin_0;//NC
+	OLED5.CS_Handler= OLED5_CS_Callback;
+	OLED_Init(&OLED5);
 	//ADC1 Init
 	Simple_ADC1_Single_Channel_Init();
 }
