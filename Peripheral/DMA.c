@@ -25,7 +25,7 @@
   */
 void DMA_Transfer(DMA_Channel_TypeDef* DMAy_Channelx,uint32_t DataSize,uint32_t AddrA,uint32_t Addr_B,uint16_t DataLength){
 	RCC_AHBPeriphClockCmd(DMA_Channel_to_RCC_AHBPeriph(DMAy_Channelx),ENABLE);
-	
+
 	DMA_InitTypeDef DMA_InitStruct;
 	DMA_InitStruct.DMA_PeripheralBaseAddr = AddrA;
 	DMA_InitStruct.DMA_PeripheralDataSize = DataSize;
@@ -39,7 +39,7 @@ void DMA_Transfer(DMA_Channel_TypeDef* DMAy_Channelx,uint32_t DataSize,uint32_t 
 	DMA_InitStruct.DMA_M2M = DMA_M2M_Enable;// 软件触发：Memory to memory，因为软件一般是用DMA转移数据，只提供第一次触发，剩下的数据需要M2M自动触发，直到数据寄存器清零。
 	DMA_InitStruct.DMA_Priority = DMA_Priority_Medium;
 	DMA_Init(DMAy_Channelx,&DMA_InitStruct);
-	
+
 	DMA_Cmd(DMAy_Channelx,ENABLE);
 }
 
