@@ -1,6 +1,7 @@
 #ifndef __MATRIX_LED_H
 #define __MATRIX_LED_H
-
+#include "STM32Device.h"
+#include "74HC595.h"
 typedef struct{
 	_74HC595_TypeDef ROW,COL;
 } MatrixLED_TypeDef;
