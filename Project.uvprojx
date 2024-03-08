@@ -579,6 +579,16 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\OLED.h</FilePath>
             </File>
+            <File>
+              <FileName>Sensor_DHT11.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Sensor_DHT11.c</FilePath>
+            </File>
+            <File>
+              <FileName>Sensor_DHT11.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Sensor_DHT11.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>

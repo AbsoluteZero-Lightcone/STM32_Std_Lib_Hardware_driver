@@ -22,7 +22,7 @@ uint8_t to_IRQn_Type(uint16_t Pin);
 
 void (*(get_RCC_APBxPeriphClockCmd_Handler(uint32_t RCC_APBxPeriph)))(uint32_t RCC_APB2Periph, FunctionalState NewState);
 uint32_t TIM_to_RCC_APBxPeriph(TIM_TypeDef* TIMx);
-
+uint32_t DMA_Channel_to_RCC_AHBPeriph(DMA_Channel_TypeDef* DMAy_Channelx);
 
 #endif /* __DATA_TYPE_H */
 

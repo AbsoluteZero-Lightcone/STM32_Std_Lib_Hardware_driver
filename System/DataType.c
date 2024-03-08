@@ -179,4 +179,24 @@ uint32_t TIM_to_RCC_APBxPeriph(TIM_TypeDef* TIMx){
 	return 0;
 }
 
+uint32_t DMA_Channel_to_RCC_AHBPeriph(DMA_Channel_TypeDef* DMAy_Channelx){
+	if(
+		DMAy_Channelx == DMA1_Channel1||
+		DMAy_Channelx == DMA1_Channel2||
+		DMAy_Channelx == DMA1_Channel3||
+		DMAy_Channelx == DMA1_Channel4||
+		DMAy_Channelx == DMA1_Channel5||
+		DMAy_Channelx == DMA1_Channel6||
+		DMAy_Channelx == DMA1_Channel7
+	)return RCC_AHBPeriph_DMA1;
+	if(
+		DMAy_Channelx == DMA2_Channel1||
+		DMAy_Channelx == DMA2_Channel2||
+		DMAy_Channelx == DMA2_Channel3||
+		DMAy_Channelx == DMA2_Channel4||
+		DMAy_Channelx == DMA2_Channel5
+		)return RCC_AHBPeriph_DMA2;
+	return 0;
+}
+
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/
