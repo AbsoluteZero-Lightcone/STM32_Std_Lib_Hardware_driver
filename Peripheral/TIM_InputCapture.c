@@ -14,7 +14,7 @@
 uint16_t TIM_Prescaler = 72;// 小了精度高但被测频率不能过低
 
 void Simple_TIM3_PWMI_Init(){
-	SimpleEnableGPIO(TIM3_CH1_AF_GPIO,TIM3_CH1_AF_Pin,GPIO_Mode_IN_FLOATING);
+	SimpleConfigGPIO(TIM3_CH1_AF_GPIO,TIM3_CH1_AF_Pin,GPIO_Mode_IN_FLOATING);
 
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,ENABLE);
 	TIM_InternalClockConfig(TIM3);

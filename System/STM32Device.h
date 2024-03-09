@@ -166,6 +166,7 @@
 #include "Pin_Config.h"
 #include "DataType.h"
 #include "Delay.h"
+#include "GPIO.h"
 /**
   * @}
   */

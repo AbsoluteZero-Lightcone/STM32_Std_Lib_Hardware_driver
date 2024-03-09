@@ -17,7 +17,7 @@ void DisableJTRST(void);
 void DisableJTAG(void);
 void DisableFullSWJ(void);
 
-void SimpleEnableGPIO(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode);
+void SimpleConfigGPIO(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode);
 void setPowerPin(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin_x,uint8_t val);
 
 

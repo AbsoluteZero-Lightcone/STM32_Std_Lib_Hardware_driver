@@ -16,7 +16,7 @@
   * @retval void
   */
 void DHT11_Init(DHT11_TypeDef* DHT11_x){
-	SimpleEnableGPIO(DHT11_x->GPIO,DHT11_x->Pin,GPIO_Mode_Out_OD);
+	SimpleConfigGPIO(DHT11_x->GPIO,DHT11_x->Pin,GPIO_Mode_Out_OD);
 	GPIO_WriteBit(DHT11_x->GPIO,DHT11_x->Pin,(BitAction)1);
 }
 
@@ -26,12 +26,11 @@ void DHT11_Init(DHT11_TypeDef* DHT11_x){
   * @retval void
   */
 void DHT11_Begin(DHT11_TypeDef* DHT11_x){
+	PullLow_ms(DHT11_x->GPIO,DHT11_x->Pin,20);
 //起始信号 微处理器把数据总线（SDA）拉低一段时间至少 18ms（最大不得超过 30ms），通知传感器准备数据。
-	GPIO_WriteBit(DHT11_x->GPIO,DHT11_x->Pin,(BitAction)0);
-	Delay_ms(20);
-	GPIO_WriteBit(DHT11_x->GPIO,DHT11_x->Pin,(BitAction)1);
+
 //响应信号 传感器把数据总线（SDA）拉低 83µs，再接高 87µs 以响应主机的起始信号。
-	while(GPIO_ReadOutputDataBit(DHT11_x->GPIO,DHT11_x->Pin));//等待拉低
+	Waiting_Low(DHT11_x->GPIO,DHT11_x->Pin);
 }
 
 /**
@@ -42,9 +41,9 @@ void DHT11_Begin(DHT11_TypeDef* DHT11_x){
 uint8_t DHT11_ReadByte(DHT11_TypeDef* DHT11_x){
 	uint8_t Val = 0;
 	for(uint8_t i = 0 ; i < 8; i++){
-		while(GPIO_ReadOutputDataBit(DHT11_x->GPIO,DHT11_x->Pin));//等待拉低
+		//Waiting_Low(DHT11_x->GPIO,DHT11_x->Pin);
 		Delay_us(90);//85~118
-		Val += (Val<<1) + GPIO_ReadOutputDataBit(DHT11_x->GPIO,DHT11_x->Pin);
+		Val += (Val<<1) + GPIO_ReadInputDataBit(DHT11_x->GPIO,DHT11_x->Pin);
 	}
 	return Val;
 }
@@ -55,10 +54,11 @@ uint8_t DHT11_ReadByte(DHT11_TypeDef* DHT11_x){
   * @retval void
   */
 void DHT11_updateData(DHT11_TypeDef* DHT11_x){
-	DHT11_Begin(DHT11_x);
-	// 再接高 87µs 以响应主机的起始信号。
-	while(GPIO_ReadOutputDataBit(DHT11_x->GPIO,DHT11_x->Pin));//等待高电平
-	//Delay_us(87);
+	//DHT11_Begin(DHT11_x);
+	//Waiting_High(DHT11_x->GPIO,DHT11_x->Pin);// 再接高 87µs 以响应主机的起始信号。
+	PullLow_ms(DHT11_x->GPIO,DHT11_x->Pin,20);
+	Delay_us(170);
+	
 	uint8_t Humidity_H = DHT11_ReadByte(DHT11_x);
 	uint8_t Humidity_L = DHT11_ReadByte(DHT11_x);
 	uint8_t Temperature_H = DHT11_ReadByte(DHT11_x); 
@@ -81,23 +81,23 @@ void DHT11_updateData(DHT11_TypeDef* DHT11_x){
 #include "STM32F103C_Dev_Board_V1.h"
 void DHT11_Demo(){
 	STM32F103C_Dev_Board_Init();
-	OLED_ShowString(&OLED5,1,1,"Humidity:");
-	OLED_ShowString(&OLED5,2,1,"  .  %RH");
-	OLED_ShowString(&OLED5,3,1,"Temperature:");
-	OLED_ShowString(&OLED5,4,1,"   .  ");
+	OLED_ShowString(&OLED1,1,1,"Humidity:");
+	OLED_ShowString(&OLED1,2,1,"  .  %RH");
+	OLED_ShowString(&OLED1,3,1,"Temperature:");
+	OLED_ShowString(&OLED1,4,1,"   .  ");
 	DHT11_TypeDef DHT11_1;
 	DHT11_1.GPIO = GPIOC;
 	DHT11_1.Pin = GPIO_Pin_13;
 	DHT11_Init(&DHT11_1);
 	while(1){
 		DHT11_updateData(&DHT11_1);
-		OLED_ShowNum(&OLED5,2,1,DHT11_1.Humidity_H,2);
-		OLED_ShowNum(&OLED5,2,4,DHT11_1.Humidity_L,2);
+		OLED_ShowNum(&OLED1,2,1,DHT11_1.Humidity_H,2);
+		OLED_ShowNum(&OLED1,2,4,DHT11_1.Humidity_L,2);
 		//且温度低位 Bit8 为 1 则表示负温度，否则为正温度
 		if(DHT11_1.Temperature_L&0x10000000)OLED_ShowString(&OLED5,4,1,"-");
-		else OLED_ShowString(&OLED5,4,1,"+");
-		OLED_ShowNum(&OLED5,4,2,DHT11_1.Temperature_H,2);
-		OLED_ShowNum(&OLED5,4,5,DHT11_1.Temperature_L&0x01111111,2);
+		else OLED_ShowString(&OLED1,4,1,"+");
+		OLED_ShowNum(&OLED1,4,2,DHT11_1.Temperature_H,2);
+		OLED_ShowNum(&OLED1,4,5,DHT11_1.Temperature_L&0x01111111,2);
 	}
 }
 

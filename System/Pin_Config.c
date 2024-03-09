@@ -77,7 +77,7 @@ void setPowerPin(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin_x,uint8_t val){
 				}GPIOMode_TypeDef;
   * @retval 
   */
-void SimpleEnableGPIO(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode){
+void SimpleConfigGPIO(GPIO_TypeDef* GPIOx,uint16_t GPIO_Pin,GPIOMode_TypeDef GPIO_Mode){
 	RCC_APB2PeriphClockCmd(to_RCC_APB2Periph(GPIOx),ENABLE);
 	GPIO_InitTypeDef GPIO_InitStruct;
 	GPIO_InitStruct.GPIO_Speed = GPIO_Speed_50MHz;

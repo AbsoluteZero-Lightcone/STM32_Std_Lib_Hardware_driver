@@ -12,7 +12,7 @@
 void Simple_ADC1_Single_Channel_Init(){
 	// 来源
 	ADC_TempSensorVrefintCmd(ENABLE);
-	SimpleEnableGPIO(ADC12_IN0_AF_GPIO,ADC12_IN0_AF_Pin,GPIO_Mode_AIN);
+	SimpleConfigGPIO(ADC12_IN0_AF_GPIO,ADC12_IN0_AF_Pin,GPIO_Mode_AIN);
 	// 时钟
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_ADC1,ENABLE);
 	RCC_ADCCLKConfig(RCC_PCLK2_Div6);

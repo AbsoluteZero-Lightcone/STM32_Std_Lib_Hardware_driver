@@ -114,10 +114,10 @@ void displayPotentiometer(){
 void displayPWMIO(){
 	STM32F103C_Dev_Board_Init();
 	
-	SimpleEnableGPIO(GPIOC,GPIO_Pin_13,GPIO_Mode_IN_FLOATING);
+	SimpleConfigGPIO(GPIOC,GPIO_Pin_13,GPIO_Mode_IN_FLOATING);
 	DisableJTAG();
 	GPIO_PinRemapConfig(GPIO_PartialRemap1_TIM2,ENABLE);
-	SimpleEnableGPIO(GPIOB,GPIO_Pin_8,GPIO_Mode_IPU);
+	SimpleConfigGPIO(GPIOB,GPIO_Pin_8,GPIO_Mode_IPU);
 	
 	Simple_PWM_TypeDef Simple_PWM_InitStruct;
 	Simple_PWM_InitStruct.duty = 0.0;
@@ -179,7 +179,7 @@ void displayPWMIO(){
 
 
 void LED_PC13(FunctionalState x){
-	SimpleEnableGPIO(GPIOC,GPIO_Pin_13,GPIO_Mode_Out_PP);
+	SimpleConfigGPIO(GPIOC,GPIO_Pin_13,GPIO_Mode_Out_PP);
 	GPIO_WriteBit(GPIOC,GPIO_Pin_13,(BitAction)x);
 }
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/

@@ -12,7 +12,7 @@
 #include "STM32Device.h"
 
 void Simple_TIM3_EncoderInterface_Init(){
-	SimpleEnableGPIO(TIM3_CH1_AF_GPIO,TIM3_CH1_AF_Pin|TIM3_CH2_AF_Pin,GPIO_Mode_IN_FLOATING);
+	SimpleConfigGPIO(TIM3_CH1_AF_GPIO,TIM3_CH1_AF_Pin|TIM3_CH2_AF_Pin,GPIO_Mode_IN_FLOATING);
 	RCC_APB1PeriphClockCmd(RCC_APB1Periph_TIM3,ENABLE);
 	TIM_InternalClockConfig(TIM3);
 
