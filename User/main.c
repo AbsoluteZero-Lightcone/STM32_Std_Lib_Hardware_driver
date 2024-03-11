@@ -10,10 +10,11 @@
 // Includes
 #include "STM32F103C_Dev_Board_V1.h"
 #include "Sensor_DHT11.h"
-
+#include "Servo_SG90.h"
 
 int main(){
-	STM32F103C_Dev_Board_Init();
+	//STM32F103C_Dev_Board_Init();
+	Servo_SG90_Demo();
 	DHT11_Demo();
 	LED_PC13(ENABLE);
 	OLED_ShowString(&OLED5,1,1,"Hello World!");

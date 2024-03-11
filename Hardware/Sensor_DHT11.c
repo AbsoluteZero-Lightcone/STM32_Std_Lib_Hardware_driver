@@ -86,8 +86,8 @@ void DHT11_Demo(){
 	OLED_ShowString(&OLED1,3,1,"Temperature:");
 	OLED_ShowString(&OLED1,4,1,"   .  ");
 	DHT11_TypeDef DHT11_1;
-	DHT11_1.GPIO = GPIOC;
-	DHT11_1.Pin = GPIO_Pin_13;
+	DHT11_1.GPIO = GPIOA;
+	DHT11_1.Pin = GPIO_Pin_1;
 	DHT11_Init(&DHT11_1);
 	while(1){
 		DHT11_updateData(&DHT11_1);
