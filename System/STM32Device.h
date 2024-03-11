@@ -13,19 +13,7 @@
 
 //#define MCU_STM32F103C
 #ifdef MCU_STM32F103C
-
-
-/** @defgroup STM32F103_System_Config
-  * @{
-  */ 
-	
 #include "stm32f10x.h"                  // Device header
-#define System_Clock_Freq 72000000
-
-/**
-  * @}
-  */
-
 
 /**
   * @defgroup STM32F103C_Debug_Pin
@@ -163,6 +151,7 @@
 /** @defgroup Public Library
   * @{
   */ 
+#include "Device_Config.h"
 #include "Pin_Config.h"
 #include "DataType.h"
 #include "Delay.h"

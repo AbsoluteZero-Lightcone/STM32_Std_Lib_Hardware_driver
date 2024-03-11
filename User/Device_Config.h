@@ -9,4 +9,22 @@
   ******************************************************************************
   */
 
+#ifndef __DEVICE_CONFIG_H
+#define __DEVICE_CONFIG_H
+#include "STM32Device.h"
+
+/** @defgroup System_Config
+  * @{
+  */ 
+	
+#define System_Clock_Freq 72000000
+
+/**
+  * @}
+  */
+
+
+#endif /* __DEVICE_CONFIG_H */
+
+
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/

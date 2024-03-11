@@ -10,6 +10,7 @@
       <TargetName>Target 1</TargetName>
       <ToolsetNumber>0x4</ToolsetNumber>
       <ToolsetName>ARM-ADS</ToolsetName>
+      <pArmCC>5060960::V5.06 update 7 (build 960)::.\ARMCC</pArmCC>
       <pCCUsed>5060960::V5.06 update 7 (build 960)::.\ARMCC</pCCUsed>
       <uAC6>0</uAC6>
       <TargetOption>
@@ -490,16 +491,6 @@
               <FilePath>.\Peripheral\TIM_PWM.h</FilePath>
             </File>
             <File>
-              <FileName>TIM_Servo.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Peripheral\TIM_Servo.c</FilePath>
-            </File>
-            <File>
-              <FileName>TIM_Servo.h</FileName>
-              <FileType>5</FileType>
-              <FilePath>.\Peripheral\TIM_Servo.h</FilePath>
-            </File>
-            <File>
               <FileName>TIM_Time.c</FileName>
               <FileType>1</FileType>
               <FilePath>.\Peripheral\TIM_Time.c</FilePath>
@@ -599,6 +590,16 @@
               <FileType>5</FileType>
               <FilePath>.\Hardware\Sensor_DHT11.h</FilePath>
             </File>
+            <File>
+              <FileName>Servo_SG90.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\Servo_SG90.c</FilePath>
+            </File>
+            <File>
+              <FileName>Servo_SG90.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\Hardware\Servo_SG90.h</FilePath>
+            </File>
           </Files>
         </Group>
         <Group>
@@ -623,6 +624,11 @@
               <FileName>stm32f10x_it.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\User\stm32f10x_it.h</FilePath>
+            </File>
+            <File>
+              <FileName>Device_Config.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\User\Device_Config.h</FilePath>
             </File>
           </Files>
         </Group>
@@ -945,5 +951,14 @@
     <components/>
     <files/>
   </RTE>
+
+  <LayerInfo>
+    <Layers>
+      <Layer>
+        <LayName>Project</LayName>
+        <LayPrjMark>1</LayPrjMark>
+      </Layer>
+    </Layers>
+  </LayerInfo>
 
 </Project>
