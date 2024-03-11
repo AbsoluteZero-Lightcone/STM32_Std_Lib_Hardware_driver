@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    STM32Device.h
   * @author  Lightcone
-  * @version V1.4.2
-  * @date    2024-2-20
+  * @version V1.4.3
+  * @date    2024-3-11
   * @brief   STM32 MCU 的引脚定义和硬件相关头文件的引用
   ******************************************************************************
   */
@@ -78,6 +78,10 @@
 
 #define TIM2_CH1_ETR_AF_GPIO GPIOA
 #define TIM2_CH1_ETR_AF_Pin  GPIO_Pin_0
+#define TIM2_CH1_AF_GPIO GPIOA
+#define TIM2_CH1_AF_Pin  GPIO_Pin_0
+#define TIM2_CH1_ETR_GPIO GPIOA
+#define TIM2_CH1_ETR_Pin  GPIO_Pin_0
 #define TIM2_CH2_AF_GPIO GPIOA
 #define TIM2_CH2_AF_Pin  GPIO_Pin_1
 #define TIM2_CH3_AF_GPIO GPIOA

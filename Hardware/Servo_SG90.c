@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    Servo_SG90.c
   * @author  Lightcone
-  * @version V1.0.1
+  * @version V1.0.2
   * @date    2024-03-11
   * @brief   STM32F10x SG90伺服电机驱动
   ******************************************************************************
@@ -21,24 +21,39 @@ FunctionalState TIM2_Enable_Status = DISABLE;
 FunctionalState TIM3_Enable_Status = DISABLE;
 FunctionalState TIM4_Enable_Status = DISABLE;
 
-void Set_TIM_Enable_Status_Flag(TIM_TypeDef* TIMx,FunctionalState x){
+void Set_TIM_Servo_Enable_Status_Flag(TIM_TypeDef* TIMx,FunctionalState x){
 	if(TIMx==TIM1)TIM1_Enable_Status=x;
 	if(TIMx==TIM2)TIM2_Enable_Status=x;
 	if(TIMx==TIM3)TIM3_Enable_Status=x;
 	if(TIMx==TIM4)TIM4_Enable_Status=x;
 }
-FunctionalState Check_TIM_Enable_Status_Flag(TIM_TypeDef* TIMx){
+FunctionalState Check_TIM_Servo_Enable_Status_Flag(TIM_TypeDef* TIMx){
 	if(TIMx==TIM1)return TIM1_Enable_Status;
 	if(TIMx==TIM2)return TIM2_Enable_Status;
 	if(TIMx==TIM3)return TIM3_Enable_Status;
 	if(TIMx==TIM4)return TIM4_Enable_Status;
-	return 0;
+	return DISABLE;
 }
 /**
   * @}
   */
 void update_Servo_TIM_Info(Servo_SG90* Servo_x){
-	//todo
+	if(Servo_x->GPIO == TIM1_CH1_AF_GPIO && Servo_x->Pin == TIM1_CH1_AF_Pin){Servo_x->TIMx = TIM1;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare1;}
+	if(Servo_x->GPIO == TIM1_CH2_AF_GPIO && Servo_x->Pin == TIM1_CH2_AF_Pin){Servo_x->TIMx = TIM1;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare2;}
+	if(Servo_x->GPIO == TIM1_CH3_AF_GPIO && Servo_x->Pin == TIM1_CH3_AF_Pin){Servo_x->TIMx = TIM1;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare3;}
+	if(Servo_x->GPIO == TIM1_CH4_AF_GPIO && Servo_x->Pin == TIM1_CH4_AF_Pin){Servo_x->TIMx = TIM1;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare4;}
+	if(Servo_x->GPIO == TIM2_CH1_AF_GPIO && Servo_x->Pin == TIM2_CH1_AF_Pin){Servo_x->TIMx = TIM2;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare1;}
+	if(Servo_x->GPIO == TIM2_CH2_AF_GPIO && Servo_x->Pin == TIM2_CH2_AF_Pin){Servo_x->TIMx = TIM2;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare2;}
+	if(Servo_x->GPIO == TIM2_CH3_AF_GPIO && Servo_x->Pin == TIM2_CH3_AF_Pin){Servo_x->TIMx = TIM2;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare3;}
+	if(Servo_x->GPIO == TIM2_CH4_AF_GPIO && Servo_x->Pin == TIM2_CH4_AF_Pin){Servo_x->TIMx = TIM2;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare4;}
+	if(Servo_x->GPIO == TIM3_CH1_AF_GPIO && Servo_x->Pin == TIM3_CH1_AF_Pin){Servo_x->TIMx = TIM3;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare1;}
+	if(Servo_x->GPIO == TIM3_CH2_AF_GPIO && Servo_x->Pin == TIM3_CH2_AF_Pin){Servo_x->TIMx = TIM3;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare2;}
+	if(Servo_x->GPIO == TIM3_CH3_AF_GPIO && Servo_x->Pin == TIM3_CH3_AF_Pin){Servo_x->TIMx = TIM3;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare3;}
+	if(Servo_x->GPIO == TIM3_CH4_AF_GPIO && Servo_x->Pin == TIM3_CH4_AF_Pin){Servo_x->TIMx = TIM3;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare4;}
+	if(Servo_x->GPIO == TIM4_CH1_AF_GPIO && Servo_x->Pin == TIM4_CH1_AF_Pin){Servo_x->TIMx = TIM4;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare1;}
+	if(Servo_x->GPIO == TIM4_CH2_AF_GPIO && Servo_x->Pin == TIM4_CH2_AF_Pin){Servo_x->TIMx = TIM4;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare2;}
+	if(Servo_x->GPIO == TIM4_CH3_AF_GPIO && Servo_x->Pin == TIM4_CH3_AF_Pin){Servo_x->TIMx = TIM4;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare3;}
+	if(Servo_x->GPIO == TIM4_CH4_AF_GPIO && Servo_x->Pin == TIM4_CH4_AF_Pin){Servo_x->TIMx = TIM4;Servo_x->TIM_SetCompare_Callback = TIM_SetCompare4;}
 }
 /**
   * @brief  Servo_SG90舵机PWM驱动
@@ -57,8 +72,8 @@ void Servo_SG90_Init(Servo_SG90* Servo_x){
 	
 	update_Servo_TIM_Info(Servo_x);
 	
-	if(!Check_TIM_Enable_Status_Flag(Servo_x->TIMx)){
-		Set_TIM_Enable_Status_Flag(Servo_x->TIMx,ENABLE);
+	if(!Check_TIM_Servo_Enable_Status_Flag(Servo_x->TIMx)){
+		Set_TIM_Servo_Enable_Status_Flag(Servo_x->TIMx,ENABLE);
 		
 		PWM_PSC = 100;
 		PWM_ARR = System_Clock_Freq*0.020/PWM_PSC;
@@ -93,7 +108,7 @@ void Servo_SG90_Init(Servo_SG90* Servo_x){
 }
 void Servo_SG90_Set_Degree(Servo_SG90* Servo_x,uint8_t degree){
 	Servo_x->degree = degree;
-	TIM_SetCompare1(Servo_x->TIMx,(uint16_t)(PWM_ARR*(0.025+0.1*(degree*1.0/Servo_x->degree_MAX))));
+	Servo_x->TIM_SetCompare_Callback(Servo_x->TIMx,(uint16_t)(PWM_ARR*(0.025+0.1*(degree*1.0/Servo_x->degree_MAX))));
 }
 
 
