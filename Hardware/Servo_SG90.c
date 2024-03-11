@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    Servo_SG90.c
   * @author  Lightcone
-  * @version V1.0.2
+  * @version V1.0.3
   * @date    2024-03-11
   * @brief   STM32F10x SG90伺服电机驱动
   ******************************************************************************
@@ -106,10 +106,9 @@ void Servo_SG90_Init(Servo_SG90* Servo_x){
 		TIM_Cmd(Servo_x->TIMx,ENABLE);
 	}
 }
-void Servo_SG90_Set_Degree(Servo_SG90* Servo_x,uint8_t degree){
+void Servo_SG90_Set_Degree(Servo_SG90* Servo_x,uint16_t degree){
 	Servo_x->degree = degree;
 	Servo_x->TIM_SetCompare_Callback(Servo_x->TIMx,(uint16_t)(PWM_ARR*(0.025+0.1*(degree*1.0/Servo_x->degree_MAX))));
 }
-
 
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/
