@@ -110,20 +110,20 @@ void Servo_SG90_Set_Degree(Servo_SG90* Servo_x,uint16_t degree){
 	Servo_x->TIM_SetCompare_Callback(Servo_x->TIMx,(uint16_t)(PWM_ARR*(0.025+0.1*(degree*1.0/Servo_x->degree_MAX))));
 }
 void Servo_SG90_Demo(){
-	Servo_SG90 Servo_1;
+	Servo_SG90 Servo_1 = {0};
 	Servo_1.degree_MAX = 180;
 	Servo_1.GPIO = GPIOA;
 	Servo_1.Pin = GPIO_Pin_7;
 	Servo_SG90_Init(&Servo_1);
-	
-	Servo_SG90 Servo_2;
-	Servo_2.degree_MAX = 180;
-	Servo_2.GPIO = GPIOA;
-	Servo_2.Pin = GPIO_Pin_6;
+	Servo_SG90 Servo_2 = {
+		.degree_MAX = 180,
+		.GPIO = GPIOA,
+		.Pin = GPIO_Pin_6
+	};
 	Servo_SG90_Init(&Servo_2);
 	uint16_t degree = 0;
 	uint8_t direction = 1;
-	
+
 	while(1){
 		Servo_SG90_Set_Degree(&Servo_1,degree);
 		Servo_SG90_Set_Degree(&Servo_2,degree);

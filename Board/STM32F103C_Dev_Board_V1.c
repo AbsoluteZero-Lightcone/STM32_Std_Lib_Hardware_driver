@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    STM32F103C_Dev_Board_V1.c
   * @author  Lightcone
-  * @version V1.3.2
-  * @date    2024-03-02
+  * @version V2.0.0
+  * @date    2024-03-13
   * @brief   STM32F103C开发板驱动库
   ******************************************************************************
   */
@@ -17,7 +17,11 @@
 uint16_t (*readPotentiometer)(uint8_t ADC_Channel_x) = get_Simple_ADC1_Single_Channel_Value;
 
 // OLED*4
-_74HC138_TypeDef CS_74HC138;
+_74HC138_TypeDef CS_74HC138 = {
+		.A_GPIO=GPIOB,.A_Pin=GPIO_Pin_11,
+		.B_GPIO=GPIOB,.B_Pin=GPIO_Pin_12,
+		.C_GPIO=GPIOB,.C_Pin=GPIO_Pin_13
+	};
 void OLED1_CS_Callback(){_74HC138_Write(&CS_74HC138,1);}
 void OLED2_CS_Callback(){_74HC138_Write(&CS_74HC138,2);}
 void OLED3_CS_Callback(){_74HC138_Write(&CS_74HC138,3);}
@@ -31,9 +35,7 @@ OLED_SPI OLED5;
 
 void STM32F103C_Dev_Board_Init(){
 	//74HC138 Init
-	CS_74HC138.A_GPIO=GPIOB;CS_74HC138.A_Pin=GPIO_Pin_11;
-	CS_74HC138.B_GPIO=GPIOB;CS_74HC138.B_Pin=GPIO_Pin_12;
-	CS_74HC138.C_GPIO=GPIOB;CS_74HC138.C_Pin=GPIO_Pin_13;
+
 	_74HC138_Init(&CS_74HC138);
 
 	//OLED1 Init
@@ -73,6 +75,12 @@ void STM32F103C_Dev_Board_Init(){
 	OLED_Init(&OLED5);
 	//ADC1 Init
 	Simple_ADC1_Single_Channel_Init();
+
+
+	for(int i = 0;i<Enum_OLED_MAX;i++){
+		OLED_Init(&Onboard_OLED[i]);
+	}
+	
 }
 
 

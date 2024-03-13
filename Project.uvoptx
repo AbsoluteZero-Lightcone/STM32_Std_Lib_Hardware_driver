@@ -152,6 +152,22 @@
         <Bp>
           <Number>0</Number>
           <Type>0</Type>
+          <LineNumber>130</LineNumber>
+          <EnabledFlag>1</EnabledFlag>
+          <Address>0</Address>
+          <ByteObject>0</ByteObject>
+          <HtxType>0</HtxType>
+          <ManyObjects>0</ManyObjects>
+          <SizeOfObject>0</SizeOfObject>
+          <BreakByAccess>0</BreakByAccess>
+          <BreakIfRCount>0</BreakIfRCount>
+          <Filename>.\Hardware\Servo_SG90.c</Filename>
+          <ExecCommand></ExecCommand>
+          <Expression></Expression>
+        </Bp>
+        <Bp>
+          <Number>1</Number>
+          <Type>0</Type>
           <LineNumber>91</LineNumber>
           <EnabledFlag>1</EnabledFlag>
           <Address>134218616</Address>
@@ -166,27 +182,11 @@
           <Expression>\\Project\Hardware/Sensor_DHT11.c\91</Expression>
         </Bp>
         <Bp>
-          <Number>1</Number>
-          <Type>0</Type>
-          <LineNumber>74</LineNumber>
-          <EnabledFlag>1</EnabledFlag>
-          <Address>134220678</Address>
-          <ByteObject>0</ByteObject>
-          <HtxType>0</HtxType>
-          <ManyObjects>0</ManyObjects>
-          <SizeOfObject>0</SizeOfObject>
-          <BreakByAccess>0</BreakByAccess>
-          <BreakIfRCount>1</BreakIfRCount>
-          <Filename>A:\Electronic\Dev_STM32_STD\STM32 宸ョ▼妯℃澘\Hardware\Servo_SG90.c</Filename>
-          <ExecCommand></ExecCommand>
-          <Expression>\\Project\Hardware/Servo_SG90.c\74</Expression>
-        </Bp>
-        <Bp>
           <Number>2</Number>
           <Type>0</Type>
-          <LineNumber>128</LineNumber>
+          <LineNumber>130</LineNumber>
           <EnabledFlag>1</EnabledFlag>
-          <Address>134220562</Address>
+          <Address>134220578</Address>
           <ByteObject>0</ByteObject>
           <HtxType>0</HtxType>
           <ManyObjects>0</ManyObjects>
@@ -195,7 +195,7 @@
           <BreakIfRCount>1</BreakIfRCount>
           <Filename>A:\Electronic\Dev_STM32_STD\STM32 宸ョ▼妯℃澘\Hardware\Servo_SG90.c</Filename>
           <ExecCommand></ExecCommand>
-          <Expression>\\Project\Hardware/Servo_SG90.c\128</Expression>
+          <Expression>\\Project\Hardware/Servo_SG90.c\130</Expression>
         </Bp>
         <Bp>
           <Number>3</Number>
