@@ -17,7 +17,7 @@ int main(){
 	Servo_SG90_Demo();
 	DHT11_Demo();
 	LED_PC13(ENABLE);
-	OLED_ShowString(&OLED5,1,1,"Hello World!");
-	OLED_ShowString(&OLED5,2,1,"123");
+	OLED_ShowString(&Onboard_OLED[Enum_OLED1],1,1,"Hello World!");
+	OLED_ShowString(&Onboard_OLED[Enum_OLED1],2,1,"123");
 }
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/
