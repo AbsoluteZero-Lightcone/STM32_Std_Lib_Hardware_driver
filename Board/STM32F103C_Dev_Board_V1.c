@@ -72,7 +72,7 @@ OLED_SPI Onboard_OLED[Enum_OLED_MAX] = {
 		.DC_GPIO  = Board_SPI_DC_GPIO ,.DC_Pin = Board_SPI_DC_Pin,
 		.RES_GPIO = GPIOG             ,.RES_Pin = GPIO_Pin_0,
 		.CS_Handler = OLED5_CS_Callback
-	}
+	},
 };
 /**
   * @}
