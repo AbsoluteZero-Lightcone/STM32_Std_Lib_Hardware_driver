@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    UART.c
   * @author  Lightcone
-  * @version V1.0.0
+  * @version V1.0.1
   * @date    2024-03-15
   * @brief   STM32F10x 
   ******************************************************************************
@@ -10,6 +10,7 @@
 #include "STM32Device.h"
 void Serial_Init(){
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);
+	
 	USART_InitTypeDef USART_InitStruct = {
 		.USART_BaudRate            = 9600,
 		.USART_WordLength          = USART_WordLength_8b,

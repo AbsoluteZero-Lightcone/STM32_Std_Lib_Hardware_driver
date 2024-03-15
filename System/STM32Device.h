@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    STM32Device.h
   * @author  Lightcone
-  * @version V1.4.3
-  * @date    2024-3-11
+  * @version V1.4.4
+  * @date    2024-3-15
   * @brief   STM32 MCU 的引脚定义和硬件相关头文件的引用
   ******************************************************************************
   */
@@ -146,6 +146,50 @@
 #define ADC12_IN8_AF_Pin  GPIO_Pin_0
 #define ADC12_IN9_AF_GPIO GPIOB
 #define ADC12_IN9_AF_Pin  GPIO_Pin_1
+/**
+  * @}
+  */
+
+/** @defgroup STM32F103C_USART_Pin
+  * @{
+  */ 
+#define USART1_TX_AF_GPIO     GPIOA
+#define USART1_TX_AF_Pin      GPIO_Pin_9
+#define USART1_RX_AF_GPIO     GPIOA
+#define USART1_RX_AF_Pin      GPIO_Pin_10
+#define USART1_CK_AF_GPIO     GPIOA
+#define USART1_CK_AF_Pin      GPIO_Pin_8
+#define USART1_CTS_AF_GPIO    GPIOA
+#define USART1_CTS_AF_Pin     GPIO_Pin_11
+#define USART1_RTS_AF_GPIO    GPIOA
+#define USART1_RTS_AF_Pin     GPIO_Pin_12
+#define USART1_TX_Remap_GPIO  GPIOB
+#define USART1_TX_Remap_Pin   GPIO_Pin_6
+#define USART1_RX_Remap_GPIO  GPIOB
+#define USART1_RX_Remap_Pin   GPIO_Pin_7
+
+#define USART2_TX_AF_GPIO     GPIOA
+#define USART2_TX_AF_Pin      GPIO_Pin_2
+#define USART2_RX_AF_GPIO     GPIOA
+#define USART2_RX_AF_Pin      GPIO_Pin_3
+#define USART2_CK_AF_GPIO     GPIOA
+#define USART2_CK_AF_Pin      GPIO_Pin_4
+#define USART2_CTS_AF_GPIO    GPIOA
+#define USART2_CTS_AF_Pin     GPIO_Pin_0
+#define USART2_RTS_AF_GPIO    GPIOA
+#define USART2_RTS_AF_Pin     GPIO_Pin_1
+
+#define USART3_TX_AF_GPIO     GPIOB
+#define USART3_TX_AF_Pin      GPIO_Pin_10
+#define USART3_RX_AF_GPIO     GPIOB
+#define USART3_RX_AF_Pin      GPIO_Pin_11
+#define USART3_CK_AF_GPIO     GPIOA
+#define USART3_CK_AF_Pin      GPIO_Pin_12
+#define USART3_CTS_AF_GPIO    GPIOB
+#define USART3_CTS_AF_Pin     GPIO_Pin_13
+#define USART3_RTS_AF_GPIO    GPIOB
+#define USART3_RTS_AF_Pin     GPIO_Pin_14
+
 /**
   * @}
   */
