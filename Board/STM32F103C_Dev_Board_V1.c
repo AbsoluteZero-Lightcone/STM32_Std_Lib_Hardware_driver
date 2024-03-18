@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    STM32F103C_Dev_Board_V1.c
   * @author  Lightcone
-  * @version V2.1.0
-  * @date    2024-03-13
+  * @version V2.1.1
+  * @date    2024-03-16
   * @brief   STM32F103C开发板驱动库
   ******************************************************************************
   */
@@ -70,7 +70,7 @@ OLED_SPI Onboard_OLED[Enum_OLED_MAX] = {
 		.D0_GPIO  = Board_SPI_SCK_GPIO,.D0_Pin = Board_SPI_SCK_Pin,
 		.D1_GPIO  = Board_SPI_SDA_GPIO,.D1_Pin = Board_SPI_SDA_Pin,
 		.DC_GPIO  = Board_SPI_DC_GPIO ,.DC_Pin = Board_SPI_DC_Pin,
-		.RES_GPIO = GPIOG             ,.RES_Pin = GPIO_Pin_0,
+		.RES_GPIO = GPIOB             ,.RES_Pin = GPIO_Pin_9,
 		.CS_Handler = OLED5_CS_Callback
 	},
 };
