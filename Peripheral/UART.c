@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    UART.c
   * @author  Lightcone
-  * @version V1.0.3
+  * @version V1.0.4
   * @date    2024-03-20
   * @brief   STM32F10x 
   ******************************************************************************
@@ -27,12 +27,38 @@ void Serial_SendData(uint16_t Data){
 	USART_SendData(USART1,Data);
 	while(!USART_GetFlagStatus(USART1,USART_FLAG_TC));
 }
+//void Serial_SendString(char s[]){
+//	uint16_t i = 0;
+//	while(s[i]!='\0'){
+//		Serial_SendData(s[i]);
+//		//if(s[i+1]=='\0')break;
+//		i++;
+//	}
+//}
+
 void Serial_SendString(char s[]){
-	uint16_t i = 0;
-	while(s[i]!='\0'){
-		Serial_SendData(s[i]);
-		//if(s[i+1]=='\0')break;
-		i++;
+	while(*s!='\0'){
+		Serial_SendData(*s);
+		s++;
 	}
 }
+void Serial_SendNum(uint32_t n){
+	uint32_t reverse_n = 0;
+	uint8_t length = 0;
+	while(n!=0){
+		reverse_n *= 10;
+		reverse_n += n%10;
+		length++;
+		n /= 10;
+	}
+	while(length!=0){
+		Serial_SendData(reverse_n%10+'0');
+		reverse_n/=10;
+		length--;
+	}
+}
+void Serial_EndLine(){
+	Serial_SendData('\n');
+}
+
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/

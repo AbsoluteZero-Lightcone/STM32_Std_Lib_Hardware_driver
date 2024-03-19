@@ -13,6 +13,7 @@
 #include "Servo_SG90.h"
 #include "math.h"
 #include "UART.h"
+#include <stdlib.h>
 
 int main(){
 	STM32F103C_Dev_Board_Init();
@@ -24,6 +25,8 @@ int main(){
 	while(1){
 		i++;
 		Serial_SendString("Hello World!\n");
+		Serial_SendNum(1234567890);
+		Serial_EndLine();
 		Delay_ms(1000);
 		//Serial_SendData(i);
 		OLED_ShowNum(&Onboard_OLED[Enum_OLED1],1,1,i,16);
