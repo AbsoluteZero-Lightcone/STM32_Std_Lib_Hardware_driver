@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    UART.c
   * @author  Lightcone
-  * @version V1.0.4
+  * @version V1.0.5
   * @date    2024-03-20
   * @brief   STM32F10x 
   ******************************************************************************
@@ -54,6 +54,23 @@ void Serial_SendNum(uint32_t n){
 	while(length!=0){
 		Serial_SendData(reverse_n%10+'0');
 		reverse_n/=10;
+		length--;
+	}
+}
+void Serial_SendHexNum(uint32_t n){
+	uint32_t reverse_n = 0;
+	uint8_t length = 0;
+	while(n!=0){
+		reverse_n <<= 4;
+		reverse_n += n&0xF;
+		length++;
+		n >>= 4;
+	}
+	Serial_SendData('0');
+	Serial_SendData('x');
+	while(length!=0){
+		Serial_SendData((reverse_n&0xF)>=10?(reverse_n&0xF)-10+'A':(reverse_n&0xF)+'0');
+		reverse_n>>=4;
 		length--;
 	}
 }
