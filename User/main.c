@@ -16,14 +16,16 @@
 
 int main(){
 	STM32F103C_Dev_Board_Init();
-	Serial_Init();
+	Serial_Init(9600);
 	//Servo_SG90_Demo();
 	//DHT11_Demo();
-	LED_PC13(ENABLE);
+	//LED_PC13(ENABLE);
 	uint64_t i = 0;
 	while(1){
-		Serial_SendData(i);
 		i++;
+		Serial_SendString("Hello World!\n");
+		Delay_ms(1000);
+		//Serial_SendData(i);
 		OLED_ShowNum(&Onboard_OLED[Enum_OLED1],1,1,i,16);
 		OLED_ShowNum(&Onboard_OLED[Enum_OLED2],2,1,log(i),16);
 		OLED_ShowNum(&Onboard_OLED[Enum_OLED3],3,1,exp(i),16);
