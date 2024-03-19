@@ -2,12 +2,14 @@
   ******************************************************************************
   * @file    UART.c
   * @author  Lightcone
-  * @version V1.0.5
+  * @version V1.0.6
   * @date    2024-03-20
   * @brief   STM32F10x 
   ******************************************************************************
   */
 #include "STM32Device.h"
+#include "UART.h"
+
 void Serial_Init(uint32_t USART_BaudRate){
 	RCC_APB2PeriphClockCmd(RCC_APB2Periph_USART1,ENABLE);
 	SimpleConfigGPIO(USART1_TX_AF_GPIO,USART1_TX_AF_Pin,GPIO_Mode_AF_PP);
@@ -42,8 +44,8 @@ void Serial_SendString(char s[]){
 		s++;
 	}
 }
-void Serial_SendNum(uint32_t n){
-	uint32_t reverse_n = 0;
+void Serial_SendNum(__SERIAL_NUM_DATA_SIZE n){
+	__SERIAL_NUM_DATA_SIZE reverse_n = 0;
 	uint8_t length = 0;
 	while(n!=0){
 		reverse_n *= 10;
@@ -57,8 +59,8 @@ void Serial_SendNum(uint32_t n){
 		length--;
 	}
 }
-void Serial_SendHexNum(uint32_t n){
-	uint32_t reverse_n = 0;
+void Serial_SendHexNum(__SERIAL_NUM_DATA_SIZE n){
+	__SERIAL_NUM_DATA_SIZE reverse_n = 0;
 	uint8_t length = 0;
 	while(n!=0){
 		reverse_n <<= 4;
@@ -71,6 +73,30 @@ void Serial_SendHexNum(uint32_t n){
 	while(length!=0){
 		Serial_SendData((reverse_n&0xF)>=10?(reverse_n&0xF)-10+'A':(reverse_n&0xF)+'0');
 		reverse_n>>=4;
+		length--;
+	}
+}
+void Serial_SendBinNum(__SERIAL_NUM_DATA_SIZE n){
+	__SERIAL_NUM_DATA_SIZE reverse_n = 0;
+	uint8_t length = 0;
+	while(n!=0){
+		reverse_n <<= 1;
+		reverse_n += n&0x1;
+		length++;
+		n >>= 1;
+	}
+	while(length%4!=0){
+		reverse_n <<= 1;
+		length++;
+	}
+	//Serial_SendData('0');
+	//Serial_SendData('b');
+	uint8_t flag=0;
+	while(length!=0){
+		if(length%4==0&&flag)Serial_SendData(' ');
+		flag=1;
+		Serial_SendData((reverse_n&0x1)+'0');
+		reverse_n>>=1;
 		length--;
 	}
 }

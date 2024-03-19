@@ -26,7 +26,9 @@ int main(){
 		i++;
 		Serial_SendString("Hello World!\n");
 		Serial_SendNum(1234567890);Serial_EndLine();
-		Serial_SendHexNum(0x12ef56);Serial_EndLine();
+		Serial_SendHexNum(0x1234567890ABCDEF);Serial_EndLine();
+		Serial_SendBinNum(0x1234567890ABCDEF);Serial_EndLine();
+		Serial_EndLine();
 		Delay_ms(1000);
 		//Serial_SendData(i);
 		OLED_ShowNum(&Onboard_OLED[Enum_OLED1],1,1,i,16);
