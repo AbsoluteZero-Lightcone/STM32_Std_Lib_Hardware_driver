@@ -611,11 +611,6 @@
               <FilePath>.\Hardware\74HC138.h</FilePath>
             </File>
             <File>
-              <FileName>OLED.c</FileName>
-              <FileType>1</FileType>
-              <FilePath>.\Hardware\OLED.c</FilePath>
-            </File>
-            <File>
               <FileName>OLED.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Hardware\OLED.h</FilePath>
@@ -639,6 +634,16 @@
               <FileName>Servo_SG90.h</FileName>
               <FileType>5</FileType>
               <FilePath>.\Hardware\Servo_SG90.h</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Display.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\OLED_Display.c</FilePath>
+            </File>
+            <File>
+              <FileName>OLED_Driver.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\Hardware\OLED_Driver.c</FilePath>
             </File>
           </Files>
         </Group>
