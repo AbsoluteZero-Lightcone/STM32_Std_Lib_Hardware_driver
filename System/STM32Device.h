@@ -199,6 +199,7 @@
 /** @defgroup Public Library
   * @{
   */ 
+#include "micro_math.h"
 #include "Device_Config.h"
 #include "Pin_Config.h"
 #include "DataType.h"

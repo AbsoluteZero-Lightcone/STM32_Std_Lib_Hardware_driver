@@ -955,6 +955,16 @@
               <FileType>1</FileType>
               <FilePath>.\System\Pin_Config.c</FilePath>
             </File>
+            <File>
+              <FileName>micro_math.c</FileName>
+              <FileType>1</FileType>
+              <FilePath>.\System\micro_math.c</FilePath>
+            </File>
+            <File>
+              <FileName>micro_math.h</FileName>
+              <FileType>5</FileType>
+              <FilePath>.\System\micro_math.h</FilePath>
+            </File>
           </Files>
         </Group>
       </Groups>

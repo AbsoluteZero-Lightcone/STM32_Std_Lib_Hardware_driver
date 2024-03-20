@@ -28,6 +28,7 @@ int main(){
 		Serial_SendNum(1234567890);Serial_EndLine();
 		Serial_SendHexNum(0x1234567890ABCDEF);Serial_EndLine();
 		Serial_SendBinNum(0x1234567890ABCDEF);Serial_EndLine();
+		Serial_SendDecimal(123.456789,6);
 		Serial_EndLine();
 		Delay_ms(1000);
 		//Serial_SendData(i);

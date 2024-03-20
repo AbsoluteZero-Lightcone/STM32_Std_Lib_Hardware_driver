@@ -2,8 +2,8 @@
   ******************************************************************************
   * @file    UART.c
   * @author  Lightcone
-  * @version V1.0.6
-  * @date    2024-03-20
+  * @version V1.0.7
+  * @date    2024-03-21
   * @brief   STM32F10x 
   ******************************************************************************
   */
@@ -29,6 +29,12 @@ void Serial_SendData(uint16_t Data){
 	USART_SendData(USART1,Data);
 	while(!USART_GetFlagStatus(USART1,USART_FLAG_TC));
 }
+
+void Serial_SendChar(char Data){
+	USART_SendData(USART1,Data);
+	while(!USART_GetFlagStatus(USART1,USART_FLAG_TC));
+}
+
 //void Serial_SendString(char s[]){
 //	uint16_t i = 0;
 //	while(s[i]!='\0'){
@@ -37,10 +43,9 @@ void Serial_SendData(uint16_t Data){
 //		i++;
 //	}
 //}
-
 void Serial_SendString(char s[]){
 	while(*s!='\0'){
-		Serial_SendData(*s);
+		Serial_SendChar(*s);
 		s++;
 	}
 }
@@ -54,7 +59,7 @@ void Serial_SendNum(__SERIAL_NUM_DATA_SIZE n){
 		n /= 10;
 	}
 	while(length!=0){
-		Serial_SendData(reverse_n%10+'0');
+		Serial_SendChar(reverse_n%10+'0');
 		reverse_n/=10;
 		length--;
 	}
@@ -68,10 +73,10 @@ void Serial_SendHexNum(__SERIAL_NUM_DATA_SIZE n){
 		length++;
 		n >>= 4;
 	}
-	Serial_SendData('0');
-	Serial_SendData('x');
+	Serial_SendChar('0');
+	Serial_SendChar('x');
 	while(length!=0){
-		Serial_SendData((reverse_n&0xF)>=10?(reverse_n&0xF)-10+'A':(reverse_n&0xF)+'0');
+		Serial_SendChar((reverse_n&0xF)>=10?(reverse_n&0xF)-10+'A':(reverse_n&0xF)+'0');
 		reverse_n>>=4;
 		length--;
 	}
@@ -89,19 +94,27 @@ void Serial_SendBinNum(__SERIAL_NUM_DATA_SIZE n){
 		reverse_n <<= 1;
 		length++;
 	}
-	//Serial_SendData('0');
-	//Serial_SendData('b');
+	//Serial_SendChar('0');
+	//Serial_SendChar('b');
 	uint8_t flag=0;
 	while(length!=0){
-		if(length%4==0&&flag)Serial_SendData(' ');
+		if(length%4==0&&flag)Serial_SendChar(' ');
 		flag=1;
-		Serial_SendData((reverse_n&0x1)+'0');
+		Serial_SendChar((reverse_n&0x1)+'0');
 		reverse_n>>=1;
 		length--;
 	}
 }
+void Serial_SendDecimal(double dec,uint8_t precision){
+	Serial_SendNum(dec);
+	Serial_SendChar('.');
+	Serial_SendNum((dec-(__SERIAL_NUM_DATA_SIZE)dec)*IntPow(10,precision));
+}
 void Serial_EndLine(){
-	Serial_SendData('\n');
+	Serial_SendChar('\n');
+}
+void Serial_SendTab(){
+	Serial_SendChar('\t');
 }
 
 /******************* Absolute Zero Studio - Lightcone **********END OF FILE****/

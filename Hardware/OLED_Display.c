@@ -2,14 +2,15 @@
   ******************************************************************************
   * @file    OLED_Display.c
   * @author  Lightcone
-  * @version V1.2.0
-  * @date    2024-03-20
+  * @version V1.2.1
+  * @date    2024-03-21
   * @brief   OLED应用层
   ******************************************************************************
   */
 #include "STM32Device.h"
 #include "OLED_Font.h"
 #include "OLED.h"
+
 
 void OLED_WriteData(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Data);
 void OLED_SetCursor(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Y, uint8_t X);
@@ -52,19 +53,6 @@ void OLED_ShowString(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column,
 	}
 }
 
-/**
-  * @brief  OLED次方函数
-  * @retval 返回值等于X的Y次方
-  */
-uint32_t OLED_Pow(uint32_t X, uint32_t Y)
-{
-	uint32_t Result = 1;
-	while (Y--)
-	{
-		Result *= X;
-	}
-	return Result;
-}
 
 /**
   * @brief  OLED显示数字（十进制，正数）
@@ -74,12 +62,12 @@ uint32_t OLED_Pow(uint32_t X, uint32_t Y)
   * @param  Length 要显示数字的长度，范围：1~10
   * @retval 无
   */
-void OLED_ShowNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length)
+void OLED_ShowNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, OLED_NUM_DATA_SIZE Number, uint8_t Length)
 {
 	uint8_t i;
 	for (i = 0; i < Length; i++)							
 	{
-		OLED_ShowChar(OLED_SPI_Struct_ptr,Line, Column + i, Number / OLED_Pow(10, Length - i - 1) % 10 + '0');
+		OLED_ShowChar(OLED_SPI_Struct_ptr,Line, Column + i, Number / IntPow(10, Length - i - 1) % 10 + '0');
 	}
 }
 
@@ -91,7 +79,7 @@ void OLED_ShowNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, ui
   * @param  Length 要显示数字的长度，范围：1~10
   * @retval 无
   */
-void OLED_ShowSignedNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, int32_t Number, uint8_t Length)
+void OLED_ShowSignedNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, OLED_SIGNED_NUM_DATA_SIZE Number, uint8_t Length)
 {
 	uint8_t i;
 	uint32_t Number1;
@@ -107,7 +95,7 @@ void OLED_ShowSignedNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Colu
 	}
 	for (i = 0; i < Length; i++)							
 	{
-		OLED_ShowChar(OLED_SPI_Struct_ptr,Line, Column + i + 1, Number1 / OLED_Pow(10, Length - i - 1) % 10 + '0');
+		OLED_ShowChar(OLED_SPI_Struct_ptr,Line, Column + i + 1, Number1 / IntPow(10, Length - i - 1) % 10 + '0');
 	}
 }
 
@@ -119,12 +107,12 @@ void OLED_ShowSignedNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Colu
   * @param  Length 要显示数字的长度，范围：1~8
   * @retval 无
   */
-void OLED_ShowHexNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length)
+void OLED_ShowHexNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, OLED_NUM_DATA_SIZE Number, uint8_t Length)
 {
 	uint8_t i, SingleNumber;
 	for (i = 0; i < Length; i++)							
 	{
-		SingleNumber = Number / OLED_Pow(16, Length - i - 1) % 16;
+		SingleNumber = Number / IntPow(16, Length - i - 1) % 16;
 		if (SingleNumber < 10)
 		{
 			OLED_ShowChar(OLED_SPI_Struct_ptr,Line, Column + i, SingleNumber + '0');
@@ -144,12 +132,12 @@ void OLED_ShowHexNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column,
   * @param  Length 要显示数字的长度，范围：1~16
   * @retval 无
   */
-void OLED_ShowBinNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length)
+void OLED_ShowBinNum(OLED_SPI* OLED_SPI_Struct_ptr,uint8_t Line, uint8_t Column, OLED_NUM_DATA_SIZE Number, uint8_t Length)
 {
 	uint8_t i;
 	for (i = 0; i < Length; i++)							
 	{
-		OLED_ShowChar(OLED_SPI_Struct_ptr,Line, Column + i, Number / OLED_Pow(2, Length - i - 1) % 2 + '0');
+		OLED_ShowChar(OLED_SPI_Struct_ptr,Line, Column + i, Number / IntPow(2, Length - i - 1) % 2 + '0');
 	}
 }
 

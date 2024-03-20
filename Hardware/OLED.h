@@ -1,7 +1,15 @@
+/**
+  ******************************************************************************
+  * @file    OLED.h
+  * @author  Lightcone
+  * @version V1.2.1
+  * @date    2024-03-21
+  * @brief   STM32F10x 
+  ******************************************************************************
+  */
 #ifndef __OLED_H
 #define __OLED_H
 #include "STM32Device.h"
-
 
 
 typedef struct{
@@ -145,13 +153,18 @@ typedef struct{
 	*/
 
 
+#define OLED_NUM_DATA_SIZE uint64_t
+#define OLED_SIGNED_NUM_DATA_SIZE int64_t
+
 void OLED_Init(OLED_SPI* OLED_SPI_Struct);
 void OLED_Clear(OLED_SPI* OLED_SPI_Struct);
 void OLED_ShowChar(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, char Char);
 void OLED_ShowString(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, char *String);
-void OLED_ShowNum(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length);
-void OLED_ShowSignedNum(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, int32_t Number, uint8_t Length);
-void OLED_ShowHexNum(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length);
-void OLED_ShowBinNum(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, uint32_t Number, uint8_t Length);
+void OLED_ShowNum(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, OLED_NUM_DATA_SIZE Number, uint8_t Length);
+void OLED_ShowSignedNum(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, OLED_SIGNED_NUM_DATA_SIZE Number, uint8_t Length);
+void OLED_ShowHexNum(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, OLED_NUM_DATA_SIZE Number, uint8_t Length);
+void OLED_ShowBinNum(OLED_SPI* OLED_SPI_Struct,uint8_t Line, uint8_t Column, OLED_NUM_DATA_SIZE Number, uint8_t Length);
 
 #endif
+
+/******************* Absolute Zero Studio - Lightcone **********END OF FILE****/
