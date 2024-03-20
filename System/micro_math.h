@@ -12,7 +12,7 @@
 #define __MICRO_MATH_H
 #include "STM32Device.h"
 
-uint32_t IntPow(uint32_t X, uint32_t Y);
+uint64_t IntPow(uint32_t X, uint32_t Y);
 
 #endif /* __MICRO_MATH_H */
 

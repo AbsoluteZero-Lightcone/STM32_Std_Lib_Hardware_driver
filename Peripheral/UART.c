@@ -2,7 +2,7 @@
   ******************************************************************************
   * @file    UART.c
   * @author  Lightcone
-  * @version V1.0.7
+  * @version V1.0.8
   * @date    2024-03-21
   * @brief   STM32F10x 
   ******************************************************************************
@@ -64,6 +64,25 @@ void Serial_SendNum(__SERIAL_NUM_DATA_SIZE n){
 		length--;
 	}
 }
+void Serial_SendSignedNum(__SERIAL_SIGNED_NUM_DATA_SIZE n){
+		if(n<0){
+			Serial_SendChar('-');
+			n = -n;
+		}
+	__SERIAL_NUM_DATA_SIZE reverse_n = 0;
+	uint8_t length = 0;
+	while(n!=0){
+		reverse_n *= 10;
+		reverse_n += n%10;
+		length++;
+		n /= 10;
+	}
+	while(length!=0){
+		Serial_SendChar(reverse_n%10+'0');
+		reverse_n/=10;
+		length--;
+	}
+}
 void Serial_SendHexNum(__SERIAL_NUM_DATA_SIZE n){
 	__SERIAL_NUM_DATA_SIZE reverse_n = 0;
 	uint8_t length = 0;
@@ -106,9 +125,22 @@ void Serial_SendBinNum(__SERIAL_NUM_DATA_SIZE n){
 	}
 }
 void Serial_SendDecimal(double dec,uint8_t precision){
+	if(dec<0){
+		Serial_SendChar('-');
+		dec = -dec;
+	}
 	Serial_SendNum(dec);
+	if(precision==0)return;
 	Serial_SendChar('.');
-	Serial_SendNum((dec-(__SERIAL_NUM_DATA_SIZE)dec)*IntPow(10,precision));
+	//Serial_SendNum((dec-(__SERIAL_NUM_DATA_SIZE)dec)*IntPow(10,precision));
+	dec = dec-(__SERIAL_NUM_DATA_SIZE)dec;
+	while(precision){
+		precision--;
+		dec*=10;
+		uint8_t cur = dec;
+		Serial_SendChar(cur+'0');
+		dec = dec - cur;
+	}
 }
 void Serial_EndLine(){
 	Serial_SendChar('\n');
