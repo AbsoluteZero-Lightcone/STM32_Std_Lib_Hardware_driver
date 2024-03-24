@@ -4,7 +4,7 @@
   * @author  Lightcone
   * @version V1.2.0
   * @date    2024-03-20
-  * @brief   OLED SSD1306硬件驱动层
+  * @brief   OLED OLED_SPI硬件驱动层
   ******************************************************************************
   */
 #include "STM32Device.h"
